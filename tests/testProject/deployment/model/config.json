@@ -1,0 +1,18 @@
+{
+  "Configuration": {
+    "DatabaseName": "default",
+    "DatabasePassword": "",
+    "DatabaseType": "HSQLDB",
+    "DatabaseHost": "",
+    "DatabaseUserName": "",
+    "DatabaseUseIntegratedSecurity": "False",
+    "ApplicationRootUrl": "http://localhost:8080/",
+    "ScheduledEventExecution": "None"
+  },
+  "Constants": {
+    "NativeFileDocuments.LOGNODE_NATIVE_FILE_DOCUMENTS": "NativeFileDocuments",
+    "NativeFileDocuments.LOG_RETENTION": "7",
+    "Atlas_UI_Resources.Atlas_UI_Resources_Version": " 2.6.7"
+  },
+  "AdminPassword": null
+}

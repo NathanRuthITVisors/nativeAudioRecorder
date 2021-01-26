@@ -1,0 +1,12 @@
+Buildfile: C:\Users\NathanRuth\Documents\Dev\nativeAudioRecorder-js\tests\testProject\deployment\build_core.xml
+
+compile:
+    [javac] Compiling 59 source files to C:\Users\NathanRuth\Documents\Dev\nativeAudioRecorder-js\tests\testProject\deployment\run\bin
+
+package:
+      [jar] Building jar: C:\Users\NathanRuth\Documents\Dev\nativeAudioRecorder-js\tests\testProject\deployment\model\bundles\project.jar
+
+BUILD SUCCESSFUL
+Total time: 3 seconds
+
+

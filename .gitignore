@@ -1,0 +1,15 @@
+tests/deployment/
+tests/.classpath
+tests/.project
+tests/theme/.sass-cache/
+tests/GPUCache/
+dist/
+node_modules/
+*.log
+*.launch
+*.tmp
+*.lock
+*.bak
+.idea/
+*DS_Store*
+.npmrc
