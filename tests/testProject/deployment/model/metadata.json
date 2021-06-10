@@ -48,11 +48,6 @@
       "Description": "Native file documents log cleanup"
     }
   ],
-  "Configuration": {
-    "SourceDatabaseType": "HSQLDB",
-    "SourceDatabaseName": "default",
-    "SourceBuiltInDatabasePath": "model/sampledata/data/database"
-  },
   "DataBrokerConfiguration": {
     "publishedServices": []
   },
