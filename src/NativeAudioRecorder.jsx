@@ -34,9 +34,9 @@ export class NativeAudioRecorder extends Component {
   }
 
   onStartRecord = async () => {
-    console.log('testtesttestttes');
+    
     const hasPermission = await this.checkPermissions();
-    console.log(hasPermission);
+    
     if (hasPermission === true) {
       const path = Platform.select({
         ios: 'hello.m4a',
@@ -49,7 +49,7 @@ export class NativeAudioRecorder extends Component {
         AVNumberOfChannelsKeyIOS: 2,
         AVFormatIDKeyIOS: AVEncodingOption.aac
       }
-      console.log('why?')
+      
       const uri = await this.audioRecorderPlayer.startRecorder(path, audioSet);
       this.audioRecorderPlayer.addRecordBackListener((e) => {
         this.setState({
@@ -179,7 +179,7 @@ export class NativeAudioRecorder extends Component {
   }
 
   checkPermissions = async () => {
-    console.log('testtselect');
+    
     return Platform.select({
       android: () => this.checkPermissionsAndroid(),
       ios: () => this.checkPermissionsIos()
@@ -216,11 +216,10 @@ export class NativeAudioRecorder extends Component {
 
     //Check if request is needed
     for (const p in permissions) {
-      console.log(p);
+      
       //returns true/false if permission is granted/denied
       const status = await PermissionsAndroid.check(permissions[p]);
       if (!status) {
-        console.log(status, permissions[p]);
         permissionsToRequest.push(permissions[p]);
       }
     }
@@ -228,7 +227,6 @@ export class NativeAudioRecorder extends Component {
     //Request only the permissions where check returned false
     if (!!permissionsToRequest) {
       //returns object with permissions as key and result as value
-      console.log(permissionsToRequest);
       const results = await PermissionsAndroid.requestMultiple(permissionsToRequest);
 
       for (const permission in results) {
@@ -247,13 +245,13 @@ export class NativeAudioRecorder extends Component {
 
   checkPermissionsIos = async () => {
 
-    const checkResult = await check(PERMISSIONS.IOS.LOCATION_ALWAYS);
+    const checkResult = await check(PERMISSIONS.IOS.MICROPHONE);
     if (checkResult === RESULTS.GRANTED) {
       console.log('The permission is granted');
       return true;
     }
     else if (checkResult === RESULTS.DENIED) {
-      const requestResult = await check(PERMISSIONS.IOS.LOCATION_ALWAYS);
+      const requestResult = await check(PERMISSIONS.IOS.MICROPHONE);
       if (requestResult === RESULTS.GRANTED) {
         console.log('The permission is granted');
         return true;
