@@ -1,17 +1,16 @@
 ## NativeAudioRecorder
-[Audio recorder and playback for native Mendix apps]
+Audio recorder and playback for native Mendix apps
 
 ## Features
-[feature highlights]
+- Record audio
+- Preview recording
+- Save recording
 
 ## Usage
 [step by step instructions]
 
 ## Demo project
-[link to sandbox]
+See /tests/testProject
 
 ## Issues, suggestions and feature requests
-[link to GitHub issues]
-
-## Development and contribution
-[specify contribute]
+https://github.com/NathanRuth/nativeAudioRecorder/issues

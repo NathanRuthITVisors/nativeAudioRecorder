@@ -1,7 +1,7 @@
-Buildfile: C:\Users\NathanRuth\Documents\Dev\nativeAudioRecorder-js\tests\testProject\deployment\build_core.xml
+Buildfile: C:\Users\NathanRuth\Documents\Dev\nativeAudioRecorder\tests\testProject\deployment\build_core.xml
 
 clean:
-   [delete] Deleting directory C:\Users\NathanRuth\Documents\Dev\nativeAudioRecorder-js\tests\testProject\deployment\model
+   [delete] Deleting directory C:\Users\NathanRuth\Documents\Dev\nativeAudioRecorder\tests\testProject\deployment\model
 
 BUILD SUCCESSFUL
 Total time: 0 seconds

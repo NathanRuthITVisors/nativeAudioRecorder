@@ -27,6 +27,8 @@
   },
   "dependencies": {
     "react-native-audio-recorder-player": "^2.6.0",
-    "react-native-permissions": "^3.0.0"
+    "react-native-button": "^3.0.1",
+    "react-native-permissions": "^2.2.2",
+    "react-native-vector-icons": "^8.0.0"
   }
 }

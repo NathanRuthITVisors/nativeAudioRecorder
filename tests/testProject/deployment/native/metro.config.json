@@ -1,8 +1,8 @@
 {
   "watch": "true",
   "watchFolders": [
-    "C:/Users/NathanRuth/Documents/Dev/nativeAudioRecorder-js/tests/testProject/theme",
-    "C:/Users/NathanRuth/Documents/Dev/nativeAudioRecorder-js/tests/testProject/javascriptsource",
+    "C:/Users/NathanRuth/Documents/Dev/nativeAudioRecorder/tests/testProject/theme",
+    "C:/Users/NathanRuth/Documents/Dev/nativeAudioRecorder/tests/testProject/javascriptsource",
     "C:/Program Files/Mendix/8.17.0.11170/modeler/tools/node/node_modules"
   ],
   "resolver": {
@@ -11,7 +11,7 @@
       "android"
     ],
     "extraNodeModules": {
-      "externalWidgets": "C:/Users/NathanRuth/Documents/Dev/nativeAudioRecorder-js/tests/testProject/deployment/native/externalWidgets",
+      "externalWidgets": "C:/Users/NathanRuth/Documents/Dev/nativeAudioRecorder/tests/testProject/deployment/native/externalWidgets",
       "@babel/runtime": "C:/Program Files/Mendix/8.17.0.11170/modeler/tools/node/node_modules/@babel/runtime",
       "big.js": "C:/Program Files/Mendix/8.17.0.11170/modeler/tools/node/node_modules/big.js",
       "react": "C:/Program Files/Mendix/8.17.0.11170/modeler/tools/node/node_modules/react",

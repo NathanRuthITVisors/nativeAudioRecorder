@@ -1,24 +1,57 @@
 import { createElement } from "react";
 const React = { createElement };
 
+import { ActionProperty } from "mendix/ActionProperty";
+import { ExpressionProperty } from "mendix/ExpressionProperty";
 import { StyleProperty } from "mendix/StyleProperty";
 
-import { itvisors_nativeaudiorecorder_NativeAudioRecorder } from "externalWidgets";
+import { Button } from "mendix/Button";
+import { View } from "mendix/View";
 import { asPluginWidgets, t } from "mendix/native";
 
-import { mainContent, sidebar } from "C:/Users/NathanRuth/Documents/Dev/nativeAudioRecorder-js/tests/testProject/deployment/native/layouts/Atlas_UI_Resources.NativePhone_Default.js";
+import { mainContent, sidebar } from "C:/Users/NathanRuth/Documents/Dev/nativeAudioRecorder/tests/testProject/deployment/native/layouts/Atlas_UI_Resources.NativePhone_Default.js";
 
-import * as styles from "C:/Users/NathanRuth/Documents/Dev/nativeAudioRecorder-js/tests/testProject/theme/styles.js";
+import * as styles from "C:/Users/NathanRuth/Documents/Dev/nativeAudioRecorder/tests/testProject/theme/styles.js";
 
-const { $itvisors_nativeaudiorecorder_NativeAudioRecorder } = asPluginWidgets({ itvisors_nativeaudiorecorder_NativeAudioRecorder });
+const { $View, $Button } = asPluginWidgets({ View, Button });
 
 const placeholder$Main = () => [
-    <$itvisors_nativeaudiorecorder_NativeAudioRecorder key="p0.NativeMobile.Home_Native.nativeAudioRecorder1"
-        $widgetId="p0.NativeMobile.Home_Native.nativeAudioRecorder1"
-        onClick={undefined}
+    <$View key="p0.NativeMobile.Home_Native.layoutGrid1"
+        $widgetId="p0.NativeMobile.Home_Native.layoutGrid1"
         style={StyleProperty({
-            styles: [ styles.itvisors_nativeaudiorecorder_NativeAudioRecorder ]
-        })} />
+            styles: [ styles.LayoutGrid ]
+        })}
+        content={[
+            <$View key="p0.NativeMobile.Home_Native.layoutGrid1$row0"
+                $widgetId="p0.NativeMobile.Home_Native.layoutGrid1$row0"
+                style={StyleProperty({
+                    styles: [ styles.row ]
+                })}
+                content={[
+                    <$View key="p0.NativeMobile.Home_Native.layoutGrid1$row0$column0"
+                        $widgetId="p0.NativeMobile.Home_Native.layoutGrid1$row0$column0"
+                        style={StyleProperty({
+                            styles: [ styles.col ]
+                        })}
+                        content={[
+                            <$Button key="p0.NativeMobile.Home_Native.actionButton1"
+                                $widgetId="p0.NativeMobile.Home_Native.actionButton1"
+                                style={StyleProperty({
+                                    styles: [ styles.ActionButton ]
+                                })}
+                                caption={t([
+                                    ExpressionProperty({
+                                        expression: { "expr": { "type": "literal", "value": "New recording" }, "args": {} }
+                                    })
+                                ])}
+                                icon={undefined}
+                                onClick={ActionProperty({
+                                    action: { "type": "callNanoflow", "argMap": {}, "config": { "nanoflow": () => require("C:/Users/NathanRuth/Documents/Dev/nativeAudioRecorder/tests/testProject/deployment/native/nanoflows/NativeMobile.ACT_Record_New").ACT_Record_New }, "disabledDuringExecution": true },
+                                    abortOnServerValidation: false
+                                })} />
+                        ]} />
+                ]} />
+        ]} />
 ];
 
 export const placeholder$Header = () => null;

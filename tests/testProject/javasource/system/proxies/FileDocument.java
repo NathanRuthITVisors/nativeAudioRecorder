@@ -75,6 +75,9 @@ public class FileDocument
 		if (com.mendix.core.Core.isSubClassOf("System.Image", mendixObject.getType()))
 			return system.proxies.Image.initialize(context, mendixObject);
 
+		if (com.mendix.core.Core.isSubClassOf("NativeMobile.Record", mendixObject.getType()))
+			return nativemobile.proxies.Record.initialize(context, mendixObject);
+
 		if (com.mendix.core.Core.isSubClassOf("System.SynchronizationErrorFile", mendixObject.getType()))
 			return system.proxies.SynchronizationErrorFile.initialize(context, mendixObject);
 

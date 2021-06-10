@@ -1,4 +1,4 @@
-C:\Program Files\Mendix\8.17.0.11170\modeler\tools\node\node.exe "C:\Program Files\Mendix\8.17.0.11170\modeler\tools\node\node_modules\react-native\local-cli\cli.js" start --port "8083" --config "C:\Users\NathanRuth\Documents\Dev\nativeAudioRecorder-js\tests\testProject\deployment\native\metro.config.json" 
+C:\Program Files\Mendix\8.17.0.11170\modeler\tools\node\node.exe "C:\Program Files\Mendix\8.17.0.11170\modeler\tools\node\node_modules\react-native\local-cli\cli.js" start --port "8083" --config "C:\Users\NathanRuth\Documents\Dev\nativeAudioRecorder\tests\testProject\deployment\native\metro.config.json" 
 
 warn Failed to chmod xsel: EPERM: operation not permitted, chmod 'C:\Program Files\Mendix\8.17.0.11170\modeler\tools\node\node_modules\react-native\node_modules\@react-native-community\cli\build\commands\server\external\xsel'
 ┌──────────────────────────────────────────────────────────────────────────────┐
@@ -13,9 +13,9 @@ warn Failed to chmod xsel: EPERM: operation not permitted, chmod 'C:\Program Fil
 └──────────────────────────────────────────────────────────────────────────────┘
 
 Looking for JS files in
-   C:\Users\NathanRuth\Documents\Dev\nativeAudioRecorder-js\tests\testProject\deployment\native
-   C:/Users/NathanRuth/Documents/Dev/nativeAudioRecorder-js/tests/testProject/theme
-   C:/Users/NathanRuth/Documents/Dev/nativeAudioRecorder-js/tests/testProject/javascriptsource
+   C:\Users\NathanRuth\Documents\Dev\nativeAudioRecorder\tests\testProject\deployment\native
+   C:/Users/NathanRuth/Documents/Dev/nativeAudioRecorder/tests/testProject/theme
+   C:/Users/NathanRuth/Documents/Dev/nativeAudioRecorder/tests/testProject/javascriptsource
    C:/Program Files/Mendix/8.17.0.11170/modeler/tools/node/node_modules 
 
 jest-haste-map: Watchman crawl failed. Retrying once with node crawler.
@@ -26,363 +26,342 @@ Loading dependency graph, done.
 To reload the app press "r"
 To open developer menu press "d"
 
- BUNDLE  [android, dev] ./index.js ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ 100.0% (1210/1210), done.
+ BUNDLE  [android, dev] ./index.js ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ 100.0% (1221/1221), done.
 
+ LOG  Running "App" with {"rootTag":41}
+ DEBUG  [goToPage] Current state: {
+  "nav": {
+    "key": "StackRouterRoot",
+    "isTransitioning": false,
+    "index": 0,
+    "routes": [
+      {
+        "routes": [
+          {
+            "isTransitioning": false,
+            "index": 0,
+            "routes": [
+              {
+                "routes": [
+                  {
+                    "isTransitioning": false,
+                    "index": 0,
+                    "routes": [
+                      {
+                        "params": {
+                          "formId": "form_kge_2",
+                          "pageName": "NativeMobile.Home_Native",
+                          "title": "Home",
+                          "layoutType": "Default",
+                          "withSideBar": false,
+                          "withBottomBar": true,
+                          "inBottomBar": true,
+                          "bottomBarIndex": 0
+                        },
+                        "routeName": "DefaultPage",
+                        "key": "id-1623337901490-0"
+                      }
+                    ],
+                    "key": "0",
+                    "routeName": "0"
+                  }
+                ],
+                "index": 0,
+                "params": {
+                  "formId": "form_kge_1",
+                  "pageName": "NativeMobile.Home_Native",
+                  "title": "Home",
+                  "layoutType": "Default",
+                  "withSideBar": false,
+                  "withBottomBar": true,
+                  "inBottomBar": true,
+                  "bottomBarIndex": 0
+                },
+                "routeName": "BottomBarNavigator",
+                "key": "BottomBarNavigator"
+              }
+            ],
+            "key": "SideBarStack",
+            "routeName": "SideBarStack"
+          }
+        ],
+        "index": 0,
+        "routeKeyHistory": [
+          "SideBarStack"
+        ],
+        "isDrawerOpen": false,
+        "routeName": "SideBarNavigator",
+        "key": "SideBarNavigator"
+      }
+    ]
+  }
+}
+ DEBUG  [goToPage] Params: {
+  "formId": "form_kge_6",
+  "pageName": "NativeMobile.Record_Native",
+  "title": "Record",
+  "formParameterGuid": "GUID:id_kge_5",
+  "layoutType": "Default",
+  "withSideBar": false,
+  "withBottomBar": true,
+  "inBottomBar": false,
+  "bottomBarIndex": -1
+} - NumberOfPagesToClose: 0
+ DEBUG  [dispatch]: {
+  "type": "Navigation/NAVIGATE",
+  "routeName": "SideBarStack",
+  "action": {
+    "type": "Navigation/NAVIGATE",
+    "routeName": "BottomBarNavigator",
+    "action": {
+      "type": "Navigation/PUSH",
+      "routeName": "DefaultPage",
+      "params": {
+        "formId": "form_kge_6",
+        "pageName": "NativeMobile.Record_Native",
+        "title": "Record",
+        "formParameterGuid": "GUID:id_kge_5",
+        "layoutType": "Default",
+        "withSideBar": false,
+        "withBottomBar": true,
+        "inBottomBar": false,
+        "bottomBarIndex": -1
+      }
+    },
+    "key": "BottomBarNavigator"
+  },
+  "key": "SideBarStack"
+}
+ DEBUG  Using object 'GUID:id_kge_5' for widget NativeMobile.Record_Native.dataView1
+ DEBUG  testtesttestttes
+ DEBUG  testtselect
+ DEBUG  permissions
+ DEBUG  0
+ DEBUG  1
+ DEBUG  []
+ DEBUG  true
+ DEBUG  why?
+ DEBUG  uri: file:///sdcard/hello.mp4
+ DEBUG  file:///sdcard/hello.mp4
+ DEBUG  onStartPlay
+ DEBUG  finished
+ DEBUG  onStopPlay
+ DEBUG  Using object 'GUID:id_kge_5' for widget NativeMobile.Record_Native.dataView1
+ DEBUG  [dispatch]: {
+  "type": "Navigation/POP",
+  "n": 2,
+  "immediate": false
+}
+ WARN  Possible Unhandled Promise Rejection (id: 0):
+Error: mediaPlayer is null.
+fn@http://192.168.1.45:8083/index.bundle?platform=android&dev=true&minify=false:20313:45
+http://192.168.1.45:8083/index.bundle?platform=android&dev=true&minify=false:192588:62
+step@http://192.168.1.45:8083/index.bundle?platform=android&dev=true&minify=false:192371:29
+http://192.168.1.45:8083/index.bundle?platform=android&dev=true&minify=false:192273:77
+tryCallTwo@http://192.168.1.45:8083/index.bundle?platform=android&dev=true&minify=false:42002:9
+doResolve@http://192.168.1.45:8083/index.bundle?platform=android&dev=true&minify=false:42166:25
+Promise@http://192.168.1.45:8083/index.bundle?platform=android&dev=true&minify=false:42025:14
+http://192.168.1.45:8083/index.bundle?platform=android&dev=true&minify=false:192252:40
+_callee5$@http://192.168.1.45:8083/index.bundle?platform=android&dev=true&minify=false:194655:57
+tryCatch@http://192.168.1.45:8083/index.bundle?platform=android&dev=true&minify=false:193816:27
+invoke@http://192.168.1.45:8083/index.bundle?platform=android&dev=true&minify=false:193989:36
+tryCatch@http://192.168.1.45:8083/index.bundle?platform=android&dev=true&minify=false:193816:27
+invoke@http://192.168.1.45:8083/index.bundle?platform=android&dev=true&minify=false:193889:34
+http://192.168.1.45:8083/index.bundle?platform=android&dev=true&minify=false:193919:23
+tryCallTwo@http://192.168.1.45:8083/index.bundle?platform=android&dev=true&minify=false:42002:9
+doResolve@http://192.168.1.45:8083/index.bundle?platform=android&dev=true&minify=false:42166:25
+Promise@http://192.168.1.45:8083/index.bundle?platform=android&dev=true&minify=false:42025:14
+callInvokeWithMethodAndArg@http://192.168.1.45:8083/index.bundle?platform=android&dev=true&minify=false:193918:37
+enqueue@http://192.168.1.45:8083/index.bundle?platform=android&dev=true&minify=false:193923:161
+async@http://192.168.1.45:8083/index.bundle?platform=android&dev=true&minify=false:193940:73
+_callee5@http://192.168.1.45:8083/index.bundle?platform=android&dev=true&minify=false:194649:46
+http://192.168.1.45:8083/index.bundle?platform=android&dev=true&minify=false:194571:41
+emit@http://192.168.1.45:8083/index.bundle?platform=android&dev=true&minify=false:21249:42
+__callFunction@http://192.168.1.45:8083/index.bundle?platform=android&dev=true&minify=false:20750:49
+http://192.168.1.45:8083/index.bundle?platform=android&dev=true&minify=false:20463:31
+__guard@http://192.168.1.45:8083/index.bundle?platform=android&dev=true&minify=false:20704:15
+callFunctionReturnFlushedQueue@http://192.168.1.45:8083/index.bundle?platform=android&dev=true&minify=false:20462:21
+callFunctionReturnFlushedQueue@[native code]
  BUNDLE  [android, dev] ./index.js ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ 100.0% (1/1), done.
 
- LOG  Running "App" with {"rootTag":11}
- DEBUG  You can use the storage
- DEBUG  You can use the mic
- DEBUG  audioSet {"AVEncoderAudioQualityKeyIOS": 96, "AVFormatIDKeyIOS": "aac", "AVNumberOfChannelsKeyIOS": 2, "AudioEncoderAndroid": 3, "AudioSourceAndroid": 1}
- DEBUG  audiorecorderplaayer {"addPlayBackListener": [Function anonymous], "addRecordBackListener": [Function anonymous], "mmss": [Function anonymous], "mmssss": [Function anonymous], "pausePlayer": [Function anonymous], "removePlayBackListener": [Function anonymous], "removeRecordBackListener": [Function anonymous], "resumePlayer": [Function anonymous], "seekToPlayer": [Function anonymous], "setSubscriptionDuration": [Function anonymous], "setVolume": [Function anonymous], "startPlayer": [Function anonymous], "startRecorder": [Function anonymous], "stopPlayer": [Function anonymous], "stopRecorder": [Function anonymous]}
- WARN  Possible Unhandled Promise Rejection (id: 0):
-TypeError: null is not an object (evaluating 'RNAudioRecorderPlayer.startRecorder')
-http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:191089:51
-step@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:190937:29
-http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:190839:77
-tryCallTwo@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:42014:9
-doResolve@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:42178:25
-Promise@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:42037:14
-http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:190818:40
-_callee$@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:191979:94
-tryCatch@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:191259:27
-invoke@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:191432:36
-tryCatch@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:191259:27
-invoke@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:191332:34
-http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:191342:25
-tryCallOne@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:42005:16
-http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:42106:27
-_callTimer@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:45560:17
-_callImmediatesPass@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:45596:19
-callImmediates@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:45815:33
-callImmediates@[native code]
-__callImmediates@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:20714:35
-http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:20491:34
-__guard@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:20697:15
-flushedQueue@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:20490:21
-flushedQueue@[native code]
-invokeCallbackAndReturnFlushedQueue@[native code]
- WARN  Possible Unhandled Promise Rejection (id: 1):
-TypeError: null is not an object (evaluating 'RNAudioRecorderPlayer.stopRecorder')
-http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:191102:51
-step@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:190937:29
-http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:190839:77
-tryCallTwo@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:42014:9
-doResolve@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:42178:25
-Promise@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:42037:14
-http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:190818:40
-_callee2$@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:192008:93
-tryCatch@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:191259:27
-invoke@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:191432:36
-tryCatch@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:191259:27
-invoke@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:191332:34
-http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:191362:23
-tryCallTwo@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:42014:9
-doResolve@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:42178:25
-Promise@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:42037:14
-callInvokeWithMethodAndArg@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:191361:37
-enqueue@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:191366:161
-async@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:191383:73
-_callee2@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:192003:46
-touchableHandlePress@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:67932:47
-touchableHandlePress@[native code]
-_performSideEffectsForTransition@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:67453:36
-_performSideEffectsForTransition@[native code]
-_receiveSignal@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:67379:46
-_receiveSignal@[native code]
-touchableHandleResponderRelease@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:67258:26
-touchableHandleResponderRelease@[native code]
-invokeGuardedCallbackImpl@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:24623:21
-invokeGuardedCallback@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:24719:42
-invokeGuardedCallbackAndCatchFirstError@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:24723:36
-executeDispatch@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:24830:48
-executeDispatchesInOrder@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:24850:26
-executeDispatchesAndRelease@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:24955:35
-forEach@[native code]
-forEachAccumulated@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:24945:22
-runEventsInBatch@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:24979:27
-runExtractedPluginEventsInBatch@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:25067:25
-http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:26093:42
-batchedUpdates$1@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:37547:20
-batchedUpdates@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:26041:36
-_receiveRootNodeIDEvent@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:26092:23
-receiveTouches@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:26122:34
-__callFunction@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:20743:49
-http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:20456:31
-__guard@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:20697:15
-callFunctionReturnFlushedQueue@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:20455:21
-callFunctionReturnFlushedQueue@[native code]
- DEBUG  You can use the storage
- DEBUG  You can use the mic
- DEBUG  audioSet {"AVEncoderAudioQualityKeyIOS": 96, "AVFormatIDKeyIOS": "aac", "AVNumberOfChannelsKeyIOS": 2, "AudioEncoderAndroid": 3, "AudioSourceAndroid": 1}
- DEBUG  audiorecorderplaayer {"_isRecording": false, "addPlayBackListener": [Function anonymous], "addRecordBackListener": [Function anonymous], "mmss": [Function anonymous], "mmssss": [Function anonymous], "pausePlayer": [Function anonymous], "removePlayBackListener": [Function anonymous], "removeRecordBackListener": [Function anonymous], "resumePlayer": [Function anonymous], "seekToPlayer": [Function anonymous], "setSubscriptionDuration": [Function anonymous], "setVolume": [Function anonymous], "startPlayer": [Function anonymous], "startRecorder": [Function anonymous], "stopPlayer": [Function anonymous], "stopRecorder": [Function anonymous]}
- WARN  Possible Unhandled Promise Rejection (id: 2):
-TypeError: null is not an object (evaluating 'RNAudioRecorderPlayer.startRecorder')
-http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:191089:51
-step@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:190937:29
-http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:190839:77
-tryCallTwo@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:42014:9
-doResolve@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:42178:25
-Promise@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:42037:14
-http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:190818:40
-_callee$@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:191979:94
-tryCatch@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:191259:27
-invoke@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:191432:36
-tryCatch@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:191259:27
-invoke@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:191332:34
-http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:191342:25
-tryCallOne@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:42005:16
-http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:42106:27
-_callTimer@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:45560:17
-_callImmediatesPass@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:45596:19
-callImmediates@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:45815:33
-callImmediates@[native code]
-__callImmediates@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:20714:35
-http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:20491:34
-__guard@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:20697:15
-flushedQueue@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:20490:21
-flushedQueue@[native code]
-invokeCallbackAndReturnFlushedQueue@[native code]
- DEBUG  You can use the storage
- DEBUG  You can use the mic
- DEBUG  audioSet {"AVEncoderAudioQualityKeyIOS": 96, "AVFormatIDKeyIOS": "aac", "AVNumberOfChannelsKeyIOS": 2, "AudioEncoderAndroid": 3, "AudioSourceAndroid": 1}
- DEBUG  audiorecorderplaayer {"_isRecording": true, "addPlayBackListener": [Function anonymous], "addRecordBackListener": [Function anonymous], "mmss": [Function anonymous], "mmssss": [Function anonymous], "pausePlayer": [Function anonymous], "removePlayBackListener": [Function anonymous], "removeRecordBackListener": [Function anonymous], "resumePlayer": [Function anonymous], "seekToPlayer": [Function anonymous], "setSubscriptionDuration": [Function anonymous], "setVolume": [Function anonymous], "startPlayer": [Function anonymous], "startRecorder": [Function anonymous], "stopPlayer": [Function anonymous], "stopRecorder": [Function anonymous]}
- DEBUG  uri: Already recording
- WARN  Possible Unhandled Promise Rejection (id: 3):
-TypeError: null is not an object (evaluating 'RNAudioRecorderPlayer.stopRecorder')
-http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:191102:51
-step@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:190937:29
-http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:190839:77
-tryCallTwo@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:42014:9
-doResolve@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:42178:25
-Promise@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:42037:14
-http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:190818:40
-_callee2$@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:192008:93
-tryCatch@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:191259:27
-invoke@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:191432:36
-tryCatch@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:191259:27
-invoke@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:191332:34
-http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:191362:23
-tryCallTwo@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:42014:9
-doResolve@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:42178:25
-Promise@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:42037:14
-callInvokeWithMethodAndArg@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:191361:37
-enqueue@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:191366:161
-async@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:191383:73
-_callee2@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:192003:46
-touchableHandlePress@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:67932:47
-touchableHandlePress@[native code]
-_performSideEffectsForTransition@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:67453:36
-_performSideEffectsForTransition@[native code]
-_receiveSignal@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:67379:46
-_receiveSignal@[native code]
-touchableHandleResponderRelease@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:67258:26
-touchableHandleResponderRelease@[native code]
-invokeGuardedCallbackImpl@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:24623:21
-invokeGuardedCallback@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:24719:42
-invokeGuardedCallbackAndCatchFirstError@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:24723:36
-executeDispatch@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:24830:48
-executeDispatchesInOrder@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:24850:26
-executeDispatchesAndRelease@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:24955:35
-forEach@[native code]
-forEachAccumulated@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:24945:22
-runEventsInBatch@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:24979:27
-runExtractedPluginEventsInBatch@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:25067:25
-http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:26093:42
-batchedUpdates$1@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:37547:20
-batchedUpdates@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:26041:36
-_receiveRootNodeIDEvent@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:26092:23
-receiveTouches@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:26122:34
-__callFunction@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:20743:49
-http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:20456:31
-__guard@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:20697:15
-callFunctionReturnFlushedQueue@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:20455:21
-callFunctionReturnFlushedQueue@[native code]
- DEBUG  Already stopped
- DEBUG  onStartPlay
- WARN  Possible Unhandled Promise Rejection (id: 4):
-TypeError: null is not an object (evaluating 'RNAudioRecorderPlayer.startPlayer')
-http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:191137:53
-step@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:190937:29
-http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:190839:77
-tryCallTwo@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:42014:9
-doResolve@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:42178:25
-Promise@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:42037:14
-http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:190818:40
-_callee3$@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:192041:92
-tryCatch@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:191259:27
-invoke@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:191432:36
-tryCatch@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:191259:27
-invoke@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:191332:34
-http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:191362:23
-tryCallTwo@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:42014:9
-doResolve@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:42178:25
-Promise@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:42037:14
-callInvokeWithMethodAndArg@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:191361:37
-enqueue@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:191366:161
-async@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:191383:73
-_callee3@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:192031:46
-touchableHandlePress@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:67932:47
-touchableHandlePress@[native code]
-_performSideEffectsForTransition@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:67453:36
-_performSideEffectsForTransition@[native code]
-_receiveSignal@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:67379:46
-_receiveSignal@[native code]
-touchableHandleResponderRelease@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:67258:26
-touchableHandleResponderRelease@[native code]
-invokeGuardedCallbackImpl@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:24623:21
-invokeGuardedCallback@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:24719:42
-invokeGuardedCallbackAndCatchFirstError@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:24723:36
-executeDispatch@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:24830:48
-executeDispatchesInOrder@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:24850:26
-executeDispatchesAndRelease@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:24955:35
-forEach@[native code]
-forEachAccumulated@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:24945:22
-runEventsInBatch@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:24979:27
-runExtractedPluginEventsInBatch@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:25067:25
-http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:26093:42
-batchedUpdates$1@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:37547:20
-batchedUpdates@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:26041:36
-_receiveRootNodeIDEvent@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:26092:23
-receiveTouches@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:26122:34
-__callFunction@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:20743:49
-http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:20456:31
-__guard@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:20697:15
-callFunctionReturnFlushedQueue@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:20455:21
-callFunctionReturnFlushedQueue@[native code]
- DEBUG  onStopPlay
- WARN  Possible Unhandled Promise Rejection (id: 5):
-TypeError: null is not an object (evaluating 'RNAudioRecorderPlayer.stopPlayer')
-http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:191154:51
-step@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:190937:29
-http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:190839:77
-tryCallTwo@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:42014:9
-doResolve@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:42178:25
-Promise@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:42037:14
-http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:190818:40
-_callee5$@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:192096:57
-tryCatch@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:191259:27
-invoke@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:191432:36
-tryCatch@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:191259:27
-invoke@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:191332:34
-http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:191362:23
-tryCallTwo@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:42014:9
-doResolve@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:42178:25
-Promise@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:42037:14
-callInvokeWithMethodAndArg@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:191361:37
-enqueue@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:191366:161
-async@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:191383:73
-_callee5@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:192090:46
-touchableHandlePress@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:67932:47
-touchableHandlePress@[native code]
-_performSideEffectsForTransition@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:67453:36
-_performSideEffectsForTransition@[native code]
-_receiveSignal@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:67379:46
-_receiveSignal@[native code]
-touchableHandleResponderRelease@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:67258:26
-touchableHandleResponderRelease@[native code]
-invokeGuardedCallbackImpl@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:24623:21
-invokeGuardedCallback@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:24719:42
-invokeGuardedCallbackAndCatchFirstError@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:24723:36
-executeDispatch@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:24830:48
-executeDispatchesInOrder@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:24850:26
-executeDispatchesAndRelease@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:24955:35
-forEach@[native code]
-forEachAccumulated@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:24945:22
-runEventsInBatch@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:24979:27
-runExtractedPluginEventsInBatch@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:25067:25
-http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:26093:42
-batchedUpdates$1@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:37547:20
-batchedUpdates@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:26041:36
-_receiveRootNodeIDEvent@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:26092:23
-receiveTouches@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:26122:34
-__callFunction@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:20743:49
-http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:20456:31
-__guard@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:20697:15
-callFunctionReturnFlushedQueue@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:20455:21
-callFunctionReturnFlushedQueue@[native code]
- DEBUG  You can use the storage
- DEBUG  You can use the mic
- DEBUG  audioSet {"AVEncoderAudioQualityKeyIOS": 96, "AVFormatIDKeyIOS": "aac", "AVNumberOfChannelsKeyIOS": 2, "AudioEncoderAndroid": 3, "AudioSourceAndroid": 1}
- DEBUG  audiorecorderplaayer {"_hasPaused": false, "_isPlaying": false, "_isRecording": false, "_recorderSubscription": null, "addPlayBackListener": [Function anonymous], "addRecordBackListener": [Function anonymous], "mmss": [Function anonymous], "mmssss": [Function anonymous], "pausePlayer": [Function anonymous], "removePlayBackListener": [Function anonymous], "removeRecordBackListener": [Function anonymous], "resumePlayer": [Function anonymous], "seekToPlayer": [Function anonymous], "setSubscriptionDuration": [Function anonymous], "setVolume": [Function anonymous], "startPlayer": [Function anonymous], "startRecorder": [Function anonymous], "stopPlayer": [Function anonymous], "stopRecorder": [Function anonymous]}
- WARN  Possible Unhandled Promise Rejection (id: 6):
-TypeError: null is not an object (evaluating 'RNAudioRecorderPlayer.startRecorder')
-http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:191089:51
-step@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:190937:29
-http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:190839:77
-tryCallTwo@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:42014:9
-doResolve@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:42178:25
-Promise@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:42037:14
-http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:190818:40
-_callee$@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:191979:94
-tryCatch@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:191259:27
-invoke@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:191432:36
-tryCatch@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:191259:27
-invoke@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:191332:34
-http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:191342:25
-tryCallOne@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:42005:16
-http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:42106:27
-_callTimer@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:45560:17
-_callImmediatesPass@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:45596:19
-callImmediates@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:45815:33
-callImmediates@[native code]
-__callImmediates@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:20714:35
-http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:20491:34
-__guard@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:20697:15
-flushedQueue@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:20490:21
-flushedQueue@[native code]
-invokeCallbackAndReturnFlushedQueue@[native code]
- WARN  Possible Unhandled Promise Rejection (id: 7):
-TypeError: null is not an object (evaluating 'RNAudioRecorderPlayer.stopRecorder')
-http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:191102:51
-step@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:190937:29
-http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:190839:77
-tryCallTwo@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:42014:9
-doResolve@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:42178:25
-Promise@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:42037:14
-http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:190818:40
-_callee2$@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:192008:93
-tryCatch@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:191259:27
-invoke@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:191432:36
-tryCatch@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:191259:27
-invoke@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:191332:34
-http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:191362:23
-tryCallTwo@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:42014:9
-doResolve@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:42178:25
-Promise@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:42037:14
-callInvokeWithMethodAndArg@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:191361:37
-enqueue@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:191366:161
-async@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:191383:73
-_callee2@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:192003:46
-touchableHandlePress@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:67932:47
-touchableHandlePress@[native code]
-_performSideEffectsForTransition@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:67453:36
-_performSideEffectsForTransition@[native code]
-_receiveSignal@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:67379:46
-_receiveSignal@[native code]
-touchableHandleResponderRelease@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:67258:26
-touchableHandleResponderRelease@[native code]
-invokeGuardedCallbackImpl@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:24623:21
-invokeGuardedCallback@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:24719:42
-invokeGuardedCallbackAndCatchFirstError@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:24723:36
-executeDispatch@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:24830:48
-executeDispatchesInOrder@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:24850:26
-executeDispatchesAndRelease@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:24955:35
-forEach@[native code]
-forEachAccumulated@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:24945:22
-runEventsInBatch@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:24979:27
-runExtractedPluginEventsInBatch@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:25067:25
-http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:26093:42
-batchedUpdates$1@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:37547:20
-batchedUpdates@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:26041:36
-_receiveRootNodeIDEvent@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:26092:23
-receiveTouches@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:26122:34
-__callFunction@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:20743:49
-http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:20456:31
-__guard@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:20697:15
-callFunctionReturnFlushedQueue@http://192.168.1.71:8083/index.bundle?platform=android&dev=true&minify=false:20455:21
-callFunctionReturnFlushedQueue@[native code]
-
-
+ LOG  Running "App" with {"rootTag":1}
+ DEBUG  [goToPage] Current state: {
+  "nav": {
+    "key": "StackRouterRoot",
+    "isTransitioning": false,
+    "index": 0,
+    "routes": [
+      {
+        "routes": [
+          {
+            "isTransitioning": false,
+            "index": 0,
+            "routes": [
+              {
+                "routes": [
+                  {
+                    "isTransitioning": false,
+                    "index": 0,
+                    "routes": [
+                      {
+                        "params": {
+                          "formId": "form_iqm_2",
+                          "pageName": "NativeMobile.Home_Native",
+                          "title": "Home",
+                          "layoutType": "Default",
+                          "withSideBar": false,
+                          "withBottomBar": true,
+                          "inBottomBar": true,
+                          "bottomBarIndex": 0
+                        },
+                        "routeName": "DefaultPage",
+                        "key": "id-1623337952566-0"
+                      }
+                    ],
+                    "key": "0",
+                    "routeName": "0"
+                  }
+                ],
+                "index": 0,
+                "params": {
+                  "formId": "form_iqm_1",
+                  "pageName": "NativeMobile.Home_Native",
+                  "title": "Home",
+                  "layoutType": "Default",
+                  "withSideBar": false,
+                  "withBottomBar": true,
+                  "inBottomBar": true,
+                  "bottomBarIndex": 0
+                },
+                "routeName": "BottomBarNavigator",
+                "key": "BottomBarNavigator"
+              }
+            ],
+            "key": "SideBarStack",
+            "routeName": "SideBarStack"
+          }
+        ],
+        "index": 0,
+        "routeKeyHistory": [
+          "SideBarStack"
+        ],
+        "isDrawerOpen": false,
+        "routeName": "SideBarNavigator",
+        "key": "SideBarNavigator"
+      }
+    ]
+  }
+}
+ DEBUG  [goToPage] Params: {
+  "formId": "form_iqm_6",
+  "pageName": "NativeMobile.Record_Native",
+  "title": "Record",
+  "formParameterGuid": "GUID:id_iqm_5",
+  "layoutType": "Default",
+  "withSideBar": false,
+  "withBottomBar": true,
+  "inBottomBar": false,
+  "bottomBarIndex": -1
+} - NumberOfPagesToClose: 0
+ DEBUG  [dispatch]: {
+  "type": "Navigation/NAVIGATE",
+  "routeName": "SideBarStack",
+  "action": {
+    "type": "Navigation/NAVIGATE",
+    "routeName": "BottomBarNavigator",
+    "action": {
+      "type": "Navigation/PUSH",
+      "routeName": "DefaultPage",
+      "params": {
+        "formId": "form_iqm_6",
+        "pageName": "NativeMobile.Record_Native",
+        "title": "Record",
+        "formParameterGuid": "GUID:id_iqm_5",
+        "layoutType": "Default",
+        "withSideBar": false,
+        "withBottomBar": true,
+        "inBottomBar": false,
+        "bottomBarIndex": -1
+      }
+    },
+    "key": "BottomBarNavigator"
+  },
+  "key": "SideBarStack"
+}
+ DEBUG  Using object 'GUID:id_iqm_5' for widget NativeMobile.Record_Native.dataView1
+ DEBUG  testtesttestttes
+ DEBUG  testtselect
+ DEBUG  permissions
+ DEBUG  0
+ DEBUG  false android.permission.RECORD_AUDIO
+ DEBUG  1
+ DEBUG  false android.permission.WRITE_EXTERNAL_STORAGE
+ DEBUG  ["android.permission.RECORD_AUDIO", "android.permission.WRITE_EXTERNAL_STORAGE"]
+ DEBUG  android.permission.WRITE_EXTERNAL_STORAGE Permission denied
+ DEBUG  android.permission.RECORD_AUDIO Permission denied
+ DEBUG  false
+ DEBUG  testtesttestttes
+ DEBUG  testtselect
+ DEBUG  permissions
+ DEBUG  0
+ DEBUG  false android.permission.RECORD_AUDIO
+ DEBUG  1
+ DEBUG  false android.permission.WRITE_EXTERNAL_STORAGE
+ DEBUG  ["android.permission.RECORD_AUDIO", "android.permission.WRITE_EXTERNAL_STORAGE"]
+ DEBUG  android.permission.WRITE_EXTERNAL_STORAGE Permission denied
+ DEBUG  android.permission.RECORD_AUDIO Permission granted
+ DEBUG  false
+ DEBUG  testtesttestttes
+ DEBUG  testtselect
+ DEBUG  permissions
+ DEBUG  0
+ DEBUG  1
+ DEBUG  false android.permission.WRITE_EXTERNAL_STORAGE
+ DEBUG  ["android.permission.WRITE_EXTERNAL_STORAGE"]
+ DEBUG  android.permission.WRITE_EXTERNAL_STORAGE Permission denied
+ DEBUG  false
+ DEBUG  testtesttestttes
+ DEBUG  testtselect
+ DEBUG  permissions
+ DEBUG  0
+ DEBUG  1
+ DEBUG  false android.permission.WRITE_EXTERNAL_STORAGE
+ DEBUG  ["android.permission.WRITE_EXTERNAL_STORAGE"]
+ DEBUG  android.permission.WRITE_EXTERNAL_STORAGE Permission denied
+ DEBUG  false
+ DEBUG  testtesttestttes
+ DEBUG  testtselect
+ DEBUG  permissions
+ DEBUG  0
+ DEBUG  1
+ DEBUG  false android.permission.WRITE_EXTERNAL_STORAGE
+ DEBUG  ["android.permission.WRITE_EXTERNAL_STORAGE"]
+ DEBUG  android.permission.WRITE_EXTERNAL_STORAGE Permission denied
+ DEBUG  false
+ DEBUG  testtesttestttes
+ DEBUG  testtselect
+ DEBUG  permissions
+ DEBUG  0
+ DEBUG  1
+ DEBUG  false android.permission.WRITE_EXTERNAL_STORAGE
+ DEBUG  ["android.permission.WRITE_EXTERNAL_STORAGE"]
+ DEBUG  android.permission.WRITE_EXTERNAL_STORAGE Permission denied
+ DEBUG  false
+ DEBUG  testtesttestttes
+ DEBUG  testtselect
+ DEBUG  permissions
+ DEBUG  0
+ DEBUG  1
+ DEBUG  []
+ DEBUG  true
+ DEBUG  why?
+ DEBUG  uri: file:///sdcard/hello.mp4
+ DEBUG  file:///sdcard/hello.mp4
+ DEBUG  Using object 'GUID:id_iqm_5' for widget NativeMobile.Record_Native.dataView1
+ DEBUG  [dispatch]: {
+  "type": "Navigation/POP",
+  "n": 2,
+  "immediate": false
+}
 
 

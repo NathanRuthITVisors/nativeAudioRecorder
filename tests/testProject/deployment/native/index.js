@@ -1,5 +1,5 @@
 import { NativeUI2 as NativeUI, startApp, t } from "mendix/native";
-import { navigationStyle } from "C:/Users/NathanRuth/Documents/Dev/nativeAudioRecorder-js/tests/testProject/theme/styles.js";
+import { navigationStyle } from "C:/Users/NathanRuth/Documents/Dev/nativeAudioRecorder/tests/testProject/theme/styles.js";
 
 startApp({
     "languages": [
@@ -255,8 +255,9 @@ startApp({
         }
     ] ),
     "onStartupNativeClient": () => {
-        NativeUI.registerPage("NativeMobile.Home_Native", require("C:/Users/NathanRuth/Documents/Dev/nativeAudioRecorder-js/tests/testProject/deployment/native/pages/NativeMobile.Home_Native"), {"sidebar":false,"headerRegionName":"placeholder$Header","showBottomBar":true,"type":"Default"});
-        NativeUI.registerPage("NativeMobile.Login", require("C:/Users/NathanRuth/Documents/Dev/nativeAudioRecorder-js/tests/testProject/deployment/native/pages/NativeMobile.Login"), {"sidebar":false,"headerRegionName":"placeholder$Header","showBottomBar":false,"type":"Default"});
+        NativeUI.registerPage("NativeMobile.Home_Native", require("C:/Users/NathanRuth/Documents/Dev/nativeAudioRecorder/tests/testProject/deployment/native/pages/NativeMobile.Home_Native"), {"sidebar":false,"headerRegionName":"placeholder$Header","showBottomBar":true,"type":"Default"});
+        NativeUI.registerPage("NativeMobile.Record_Native", require("C:/Users/NathanRuth/Documents/Dev/nativeAudioRecorder/tests/testProject/deployment/native/pages/NativeMobile.Record_Native"), {"sidebar":false,"headerRegionName":"placeholder$Header","showBottomBar":true,"type":"Default"});
+        NativeUI.registerPage("NativeMobile.Login", require("C:/Users/NathanRuth/Documents/Dev/nativeAudioRecorder/tests/testProject/deployment/native/pages/NativeMobile.Login"), {"sidebar":false,"headerRegionName":"placeholder$Header","showBottomBar":false,"type":"Default"});
     },
     "animationEnabled": true,
     "nativeUIVersion": 2

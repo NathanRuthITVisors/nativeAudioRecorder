@@ -1,0 +1,2 @@
+import { t } from "mendix/native";
+export const ACT_Record_New = {"name":"NativeMobile.ACT_Record_New","instructions":[{"type":"createObject","label":"e65a7893-982e-4abf-b892-012066748a44","objectType":"NativeMobile.Record","outputVar":"NewRecord"},{"type":"openForm","label":"4ce846d2-4c6b-4373-8f74-33664b1fe749","path":"NativeMobile.Record_Native","params":{"name":"NativeMobile.Record_Native","location":"content"},"inputVar":"NewRecord"},{"type":"return","label":"55520357-a092-4401-bc00-39d2bf495267","result":{"type":"literal","value":null},"resultKind":"primitive"}]};
