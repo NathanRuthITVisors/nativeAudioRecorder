@@ -1,2 +1,0 @@
-C:\Program Files\Mendix\8.17.0.11170\modeler\tools\node\node.exe "C:\Program Files\Mendix\8.17.0.11170\modeler\tools\node\node_modules\react-native\local-cli\cli.js" start --port "8083" --config "C:\Users\NathanRuth\Documents\Dev\nativeAudioRecorder\tests\testProject\deployment\native\metro.config.json" 
-

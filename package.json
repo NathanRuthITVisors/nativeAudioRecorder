@@ -1,34 +1,33 @@
 {
-  "name": "nativeaudiorecorder",
-  "widgetName": "NativeAudioRecorder",
-  "version": "1.0.0",
-  "description": "Audio recorder and playback for native Mendix apps",
-  "copyright": "2020 ITVisors",
-  "author": "Nathan Ruth",
-  "config": {
-    "projectPath": "./tests/testProject/"
-  },
-  "packagePath": "itvisors",
-  "scripts": {
-    "start": "npm run dev",
-    "build": "pluggable-widgets-tools build:native",
-    "dev": "pluggable-widgets-tools start:native",
-    "lint": "pluggable-widgets-tools lint",
-    "lint:fix": "pluggable-widgets-tools lint:fix",
-    "prerelease": "npm run lint",
-    "release": "pluggable-widgets-tools release:native"
-  },
-  "license": "Apache-2.0",
-  "bugs": {
-    "url": "https://github.com/Nathan Ruth/nativeaudiorecorder/issues"
-  },
-  "devDependencies": {
-    "@mendix/pluggable-widgets-tools": "^8.14.0"
-  },
-  "dependencies": {
-    "react-native-audio-recorder-player": "^2.6.0",
-    "react-native-button": "^3.0.1",
-    "react-native-permissions": "^2.2.2",
-    "react-native-vector-icons": "^8.0.0"
-  }
+    "name": "nativeaudiorecorder",
+    "widgetName": "NativeAudioRecorder",
+    "version": "1.0.0",
+    "description": "Audio recorder and playback for native Mendix apps",
+    "copyright": "2021 ITVisors",
+    "author": "Nathan Ruth",
+    "config": {
+        "projectPath": "./tests/"
+    },
+    "packagePath": "itvisors",
+    "scripts": {
+        "start": "npm run dev",
+        "build": "pluggable-widgets-tools build:native",
+        "dev": "pluggable-widgets-tools start:native",
+        "lint": "pluggable-widgets-tools lint",
+        "lint:fix": "pluggable-widgets-tools lint:fix",
+        "prerelease": "npm run lint",
+        "release": "pluggable-widgets-tools release:native"
+    },
+    "license": "Apache-2.0",
+    "bugs": {
+        "url": "https://github.com/Nathan Ruth/nativeaudiorecorder/issues"
+    },
+    "devDependencies": {
+        "@mendix/pluggable-widgets-tools": "^9.5.4",
+        "prettier": "2.4.1"
+    },
+    "dependencies": {
+        "react-native-audio-recorder-player": "^3.2.0",
+        "react-native-permissions": "^2.2.2"
+    }
 }

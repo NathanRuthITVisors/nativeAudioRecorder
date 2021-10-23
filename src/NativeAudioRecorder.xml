@@ -13,5 +13,23 @@
                 <description>Flow to save the recording to a filedocument entity</description>
             </property>
         </propertyGroup>
+        <propertyGroup caption="Icons">
+            <property key="iconRecord" type="icon" required="false">
+                <caption>Record icon</caption>
+                <description></description>
+            </property>
+            <property key="iconPlay" type="icon" required="false">
+                <caption>Play icon</caption>  
+                <description></description> 
+            </property>
+            <property key="iconPause" type="icon" required="false">
+                <caption>Pause icon</caption> 
+                <description></description>  
+            </property>
+            <property key="iconStop" type="icon" required="false">
+                <caption>Stop icon</caption>   
+                <description></description>
+            </property>
+        </propertyGroup>
     </properties>
 </widget>
