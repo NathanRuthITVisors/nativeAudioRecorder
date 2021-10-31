@@ -12,7 +12,7 @@ import { Big } from "big.js";
 import NativeFileDocumentsUtils from "../nativefiledocumentsutils";
 import RNFS from "react-native-fs";
 import FileViewer from "react-native-file-viewer";
-import { Platform } from 'react-native';
+import { Platform } from "react-native";
 
 // END EXTRA CODE
 
@@ -24,58 +24,58 @@ import { Platform } from 'react-native';
  * @returns {Promise.<boolean>}
  */
 export async function viewFile(filepath, pathType, writeToLog) {
-	// BEGIN USER CODE
-	return new Promise(function (resolve, reject) {
-		if (!filepath) {
-			reject("No file path specified");
-		}
-		if (!pathType) {
-			reject("No path type specified");
-		}
-		if (writeToLog) {
-			NativeFileDocumentsUtils.writeToLog({
-				actionName: "viewFile",
-				logType: "Parameters",
-				logMessage: JSON.stringify({
-					filepath: filepath,
-					pathType: pathType
-				})
-			});
-		}
+    // BEGIN USER CODE
+    return new Promise(function (resolve, reject) {
+        if (!filepath) {
+            reject("No file path specified");
+        }
+        if (!pathType) {
+            reject("No path type specified");
+        }
+        if (writeToLog) {
+            NativeFileDocumentsUtils.writeToLog({
+                actionName: "viewFile",
+                logType: "Parameters",
+                logMessage: JSON.stringify({
+                    filepath: filepath,
+                    pathType: pathType
+                })
+            });
+        }
 
-		// We cannot use NativeFileDocumentsUtils.getFullPath here 
-		// It adds the file:// prefix which RNFS needs.
-		// However, the viewer does not want that prefix added.  
-		let fullPath = null;
-		switch (pathType) {
-			case "FullPath":
-				fullPath = filepath;
-				break;
-		
-			case "DocumentsDirectory":
-				if (filepath.startsWith("/")) {
-					fullPath = RNFS.DocumentDirectoryPath + filepath;
-				} else {
-					fullPath = RNFS.DocumentDirectoryPath + "/" + filepath;
-				}
-				break;	
-		}
+        // We cannot use NativeFileDocumentsUtils.getFullPath here
+        // It adds the file:// prefix which RNFS needs.
+        // However, the viewer does not want that prefix added.
+        let fullPath = null;
+        switch (pathType) {
+            case "FullPath":
+                fullPath = filepath;
+                break;
 
+            case "DocumentsDirectory":
+                if (filepath.startsWith("/")) {
+                    fullPath = RNFS.DocumentDirectoryPath + filepath;
+                } else {
+                    fullPath = RNFS.DocumentDirectoryPath + "/" + filepath;
+                }
+                break;
+        }
 
-		if (writeToLog) {
-			NativeFileDocumentsUtils.writeToLog({
-				actionName: "viewFile",
-				logType: "Info",
-				logMessage: "Full path: " + fullPath
-			});
-		}
+        if (writeToLog) {
+            NativeFileDocumentsUtils.writeToLog({
+                actionName: "viewFile",
+                logType: "Info",
+                logMessage: "Full path: " + fullPath
+            });
+        }
 
-		FileViewer.open(fullPath).then(() => {
-			resolve(true);
-		}).catch(() => {
-			reject("Failed to open document"); // Device has no app for the file type
-		});
-
-	});
-	// END USER CODE
+        FileViewer.open(fullPath)
+            .then(() => {
+                resolve(true);
+            })
+            .catch(() => {
+                reject("Failed to open document"); // Device has no app for the file type
+            });
+    });
+    // END USER CODE
 }

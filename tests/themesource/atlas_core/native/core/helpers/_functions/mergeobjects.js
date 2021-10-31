@@ -23,8 +23,7 @@ export default function (...sources) {
                         Object.assign(target, { [key]: {} });
                     }
                     mergeDeep(target[key], source[key]);
-                }
-                else {
+                } else {
                     Object.assign(target, { [key]: source[key] || target[key] });
                 }
             });

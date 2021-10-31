@@ -18,7 +18,7 @@ import { Big } from "big.js";
  * @returns {Promise.<boolean>}
  */
 export async function Share(url, text, title) {
-	// BEGIN USER CODE
+    // BEGIN USER CODE
     if (!text && !url) {
         return Promise.reject(new Error("It is required to provide at least one of input parameters 'Text' and 'Url'"));
     }
@@ -59,5 +59,5 @@ export async function Share(url, text, title) {
         return Promise.reject(new Error("This action requires a secure https: connection"));
     }
     return Promise.reject(new Error("This action is not supported by this browser"));
-	// END USER CODE
+    // END USER CODE
 }

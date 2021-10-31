@@ -20,7 +20,7 @@ import { Big } from "big.js";
  * @returns {Promise.<boolean>}
  */
 export async function DraftEmail(recipient, cc, bcc, subject, body) {
-	// BEGIN USER CODE
+    // BEGIN USER CODE
     let url = "mailto:";
     if (recipient) {
         url += `${encodeURI(recipient)}?`;
@@ -60,5 +60,5 @@ export async function DraftEmail(recipient, cc, bcc, subject, body) {
         return Promise.resolve(true);
     }
     return Promise.resolve(false);
-	// END USER CODE
+    // END USER CODE
 }

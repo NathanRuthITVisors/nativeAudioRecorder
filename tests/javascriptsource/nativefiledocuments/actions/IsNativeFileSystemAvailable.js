@@ -15,7 +15,7 @@ import { Big } from "big.js";
  * @returns {Promise.<boolean>}
  */
 export async function IsNativeFileSystemAvailable() {
-	// BEGIN USER CODE
-	return (!!require('react-native').NativeModules.RNFSManager);
-	// END USER CODE
+    // BEGIN USER CODE
+    return !!require("react-native").NativeModules.RNFSManager;
+    // END USER CODE
 }

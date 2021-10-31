@@ -11,13 +11,13 @@ import { Big } from "big.js";
 
 import NativeFileDocumentsUtils from "../nativefiledocumentsutils";
 import RNFS from "react-native-fs";
-import { Platform } from 'react-native';
+import { Platform } from "react-native";
 
 // END EXTRA CODE
 
 /**
  * Copies the file located at filepath to destPath.
- * 
+ *
  * Note: On Android copyFile will overwrite destPath if it already exists. On iOS an error will be thrown if the file already exists.
  * @param {string} filepath - The file to copy
  * @param {"NativeFileDocuments.PathType.FullPath"|"NativeFileDocuments.PathType.DocumentsDirectory"} filepathType
@@ -27,46 +27,46 @@ import { Platform } from 'react-native';
  * @returns {Promise.<void>}
  */
 export async function copyFile(filepath, filepathType, destPath, destPathType, writeToLog) {
-	// BEGIN USER CODE
-	if (!filepath) {
-		Promise.reject("No file path specified");
-	}
-	if (!filepathType) {
-		Promise.reject("No path type specified");
-	}
+    // BEGIN USER CODE
+    if (!filepath) {
+        Promise.reject("No file path specified");
+    }
+    if (!filepathType) {
+        Promise.reject("No path type specified");
+    }
 
-	if (!destPath) {
-		Promise.reject("No destination path specified");
-	}
-	if (!destPathType) {
-		Promise.reject("No destination type specified");
-	}
+    if (!destPath) {
+        Promise.reject("No destination path specified");
+    }
+    if (!destPathType) {
+        Promise.reject("No destination type specified");
+    }
 
-	if (writeToLog) {
-		NativeFileDocumentsUtils.writeToLog({
-			actionName: "copyFile",
-			logType: "Parameters",
-			logMessage: JSON.stringify({
-				filepath: filepath,
-				filepathType: filepathType,
-				destPath: destPath,
-				destPathType: destPathType
-			})
-		});
-	}
+    if (writeToLog) {
+        NativeFileDocumentsUtils.writeToLog({
+            actionName: "copyFile",
+            logType: "Parameters",
+            logMessage: JSON.stringify({
+                filepath: filepath,
+                filepathType: filepathType,
+                destPath: destPath,
+                destPathType: destPathType
+            })
+        });
+    }
 
-	const fullFilePath = NativeFileDocumentsUtils.getFullPath(filepath, filepathType, RNFS, Platform.OS);
-	const fullDestPath = NativeFileDocumentsUtils.getFullPath(destPath, destPathType, RNFS, Platform.OS);
+    const fullFilePath = NativeFileDocumentsUtils.getFullPath(filepath, filepathType, RNFS, Platform.OS);
+    const fullDestPath = NativeFileDocumentsUtils.getFullPath(destPath, destPathType, RNFS, Platform.OS);
 
-	if (writeToLog) {
-		NativeFileDocumentsUtils.writeToLog({
-			actionName: "copyFile",
-			logType: "Info",
-			logMessage: "Full file path: " + fullFilePath + ", full dest path: " + fullDestPath
-		});
-	}
+    if (writeToLog) {
+        NativeFileDocumentsUtils.writeToLog({
+            actionName: "copyFile",
+            logType: "Info",
+            logMessage: "Full file path: " + fullFilePath + ", full dest path: " + fullDestPath
+        });
+    }
 
-	return RNFS.copyFile(fullFilePath, fullDestPath);
+    return RNFS.copyFile(fullFilePath, fullDestPath);
 
-	// END USER CODE
+    // END USER CODE
 }

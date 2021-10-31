@@ -15,11 +15,11 @@ import { checkDateConstraintsFull } from "../GetOfflineUtils";
 
 /**
  * Get offline implementation using JSON strings as parameters. See getOffline at https://apidocs.mendix.com/7/client/mx.data.html for details.
- * 
+ *
  * The total object count is returned, zero if not found.
- * 
- * Be sure to specify a limit of one, to avoid receiving a lot of data which is not used anyway. 
- * 
+ *
+ * Be sure to specify a limit of one, to avoid receiving a lot of data which is not used anyway.
+ *
  * Use DateTimeToMilliseconds to get the correct value to use for date constraints.
  * @param {string} entityToReturn
  * @param {string} constraintsJson
@@ -27,7 +27,7 @@ import { checkDateConstraintsFull } from "../GetOfflineUtils";
  * @returns {Promise.<Big>}
  */
 export async function GetOfflineFullCount(entityToReturn, constraintsJson, filterJson) {
-	// BEGIN USER CODE
+    // BEGIN USER CODE
     return new Promise(function (resolve, reject) {
         try {
             var constraints, filter;
@@ -60,5 +60,5 @@ export async function GetOfflineFullCount(entityToReturn, constraintsJson, filte
             }
         }
     });
-	// END USER CODE
+    // END USER CODE
 }

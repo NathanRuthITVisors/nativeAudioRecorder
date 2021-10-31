@@ -12,18 +12,18 @@ import { Big } from "big.js";
 
 /**
  * Tries to login using a username and password.
- * 
+ *
  * Returns an HTTP response status code, for example:
  * - 200 when the login succeeds
  * - 401 when the entered username or password is incorrect
  * - 0 when the network connection is unavailable
- * 
+ *
  * @param {string} username - This field is required.
  * @param {string} password - This field is required.
  * @returns {Promise.<Big>}
  */
 export async function SignIn(username, password) {
-	// BEGIN USER CODE
+    // BEGIN USER CODE
     if (!username || !password) {
         return Promise.resolve(new Big(401));
     }
@@ -32,5 +32,5 @@ export async function SignIn(username, password) {
         const onError = error => resolve(new Big(error.status));
         mx.login(username, password, onSuccess, onError);
     });
-	// END USER CODE
+    // END USER CODE
 }

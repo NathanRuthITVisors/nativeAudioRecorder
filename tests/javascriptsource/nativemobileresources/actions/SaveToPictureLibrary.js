@@ -16,7 +16,7 @@ import { saveToCameraRoll } from "@react-native-community/cameraroll";
  * @returns {Promise.<string>}
  */
 export async function SaveToPictureLibrary(picture) {
-	// BEGIN USER CODE
+    // BEGIN USER CODE
     // Documentation https://facebook.github.io/react-native/docs/cameraroll#savetocameraroll
     if (!picture) {
         return Promise.reject(new Error("Input parameter 'Picture' is required"));
@@ -29,5 +29,5 @@ export async function SaveToPictureLibrary(picture) {
     const changedDate = picture.get("changedDate");
     const url = mx.data.getDocumentUrl(guid, changedDate);
     return saveToCameraRoll(url);
-	// END USER CODE
+    // END USER CODE
 }

@@ -17,7 +17,7 @@ import Geolocation from "@react-native-community/geolocation";
  * @returns {Promise.<boolean>}
  */
 export async function RequestLocationPermission() {
-	// BEGIN USER CODE
+    // BEGIN USER CODE
     if (navigator && navigator.product === "ReactNative") {
         if (!navigator.geolocation) {
             navigator.geolocation = Geolocation;
@@ -41,5 +41,5 @@ export async function RequestLocationPermission() {
         }
     }
     return Promise.reject(new Error("No permission request for location is required for web/hybrid platform"));
-	// END USER CODE
+    // END USER CODE
 }

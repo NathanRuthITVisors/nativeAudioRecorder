@@ -1,7 +1,7 @@
 import React, { Component, createElement } from "react";
 import { Platform, Alert, Text, View, Linking, PermissionsAndroid, Pressable } from "react-native";
 
-import { check, request, PERMISSIONS, RESULTS } from "react-native-permissions";
+import { check, PERMISSIONS, RESULTS } from "react-native-permissions";
 
 import AudioRecorderPlayer, {
     AudioEncoderAndroidType,
@@ -357,40 +357,32 @@ export class NativeAudioRecorder extends Component {
         if (!this.audioRecorderPlayer) {
             this.audioRecorderPlayer = new AudioRecorderPlayer();
         }
+        var disabled =
+            this.state.status === "new" ||
+            this.state.status === "recording" ||
+            this.props.saveToFileDocument.isExecuting;
 
         return (
             <>
                 <View style={this.styles.container}>{this.renderContent()}</View>
                 <View style={this.styles.footerButtons}>
                     <Pressable
-                        style={this.styles.footerButton}
-                        styleDisabled={this.styles.footerButtonDisabled}
+                        style={disabled ? this.styles.footerButtonSaveDisabled : this.styles.footerButtonSave}
                         onPress={this.onSave}
-                        disabled={
-                            this.state.status === "new" ||
-                            this.state.status === "recording" ||
-                            this.props.saveToFileDocument.isExecuting
-                        }
+                        disabled={disabled}
                     >
-                        <Text>SAVE</Text>
+                        <Text style={this.styles.footerButtonTextSave}>SAVE</Text>
                     </Pressable>
-                    <Pressable
-                        style={[
-                            this.styles.footerButton,
-                            {
-                                backgroundColor: "#ffffff",
-                                color: "#e83a3a"
+                    <Pressable style={this.styles.footerButtonDelete} onPress={this.onDelete} disabled={disabled}>
+                        <Text
+                            style={
+                                disabled
+                                    ? this.styles.footerButtonTextDeleteDisabled
+                                    : this.styles.footerButtonTextDelete
                             }
-                        ]}
-                        styleDisabled={this.styles.footerButtonDisabled}
-                        onPress={this.onDelete}
-                        disabled={
-                            this.state.status === "new" ||
-                            this.state.status === "recording" ||
-                            this.props.saveToFileDocument.isExecuting
-                        }
-                    >
-                        <Text>DELETE</Text>
+                        >
+                            DELETE
+                        </Text>
                     </Pressable>
                 </View>
             </>

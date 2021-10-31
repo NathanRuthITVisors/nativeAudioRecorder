@@ -19,7 +19,7 @@ import Sound from "react-native-sound";
  * @returns {Promise.<void>}
  */
 export async function PlaySound(audioFile) {
-	// BEGIN USER CODE
+    // BEGIN USER CODE
     // Documentation https://github.com/zmxv/react-native-sound
     if (!audioFile) {
         return Promise.reject(new Error("Input parameter 'Audio file' is required"));
@@ -43,5 +43,5 @@ export async function PlaySound(audioFile) {
             return Promise.reject(new Error("Playback failed due to an audio encoding error"));
         });
     });
-	// END USER CODE
+    // END USER CODE
 }

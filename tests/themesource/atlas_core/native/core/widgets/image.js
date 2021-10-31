@@ -19,7 +19,7 @@ export const Image = {
         maxHeight: "100%"
     },
     containerDisabled: {
-    // All ViewStyle properties are allowed
+        // All ViewStyle properties are allowed
     },
     image: {
         // All ImageStyle properties are allowed
@@ -40,7 +40,7 @@ export const ImageViewer = {
         maxHeight: "100%"
     },
     containerDisabled: {
-    // All ViewStyle properties are allowed
+        // All ViewStyle properties are allowed
     },
     image: {
         // All ImageStyle properties are allowed

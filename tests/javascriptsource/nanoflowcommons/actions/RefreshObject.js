@@ -16,7 +16,7 @@ import { Big } from "big.js";
  * @returns {Promise.<void>}
  */
 export async function RefreshObject(objectToRefresh) {
-	// BEGIN USER CODE
+    // BEGIN USER CODE
     if (!objectToRefresh) {
         return Promise.reject(new Error("ObjectToRefresh parameter is required"));
     }
@@ -26,5 +26,5 @@ export async function RefreshObject(objectToRefresh) {
             callback: () => resolve(true)
         });
     });
-	// END USER CODE
+    // END USER CODE
 }

@@ -17,7 +17,7 @@ import { Big } from "big.js";
  * @returns {Promise.<string>}
  */
 export async function FormatDateTime(dateToFormat, formatToUse) {
-	// BEGIN USER CODE
+    // BEGIN USER CODE
     return new Promise(function (resolve, reject) {
         var formattedDate;
         if (typeof dateToFormat !== "undefined" && dateToFormat !== null) {
@@ -39,5 +39,5 @@ export async function FormatDateTime(dateToFormat, formatToUse) {
             resolve("");
         }
     });
-	// END USER CODE
+    // END USER CODE
 }

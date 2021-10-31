@@ -17,7 +17,7 @@ import AsyncStorage from "@react-native-community/async-storage";
  * @returns {Promise.<boolean>}
  */
 export async function RemoveStorageItem(key) {
-	// BEGIN USER CODE
+    // BEGIN USER CODE
     if (!key) {
         return Promise.reject(new Error("Input parameter 'Key' is required"));
     }
@@ -32,5 +32,5 @@ export async function RemoveStorageItem(key) {
         }
         return Promise.reject(new Error("No storage API available"));
     }
-	// END USER CODE
+    // END USER CODE
 }

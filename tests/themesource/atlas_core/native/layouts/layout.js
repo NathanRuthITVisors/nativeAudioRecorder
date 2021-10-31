@@ -15,19 +15,21 @@ To customize any core styling, copy the part you want to customize to styles/nat
 ========================================================================== */
 // backgroundColor of the native iOS statusbar can not be changed.
 // To fix this we change the barStyle of the statusbar if OS theme is dark and app theme is light (And the other way around).
-const isOSDarkMode = NativeModules &&
+const isOSDarkMode =
+    NativeModules &&
     NativeModules.RNDarkMode &&
     NativeModules.RNDarkMode.initialMode &&
     NativeModules.RNDarkMode.initialMode === "dark";
-const statusBarStyle = !darkMode && isOSDarkMode
-    ? "dark-content"
-    : darkMode && !isOSDarkMode
+const statusBarStyle =
+    !darkMode && isOSDarkMode
+        ? "dark-content"
+        : darkMode && !isOSDarkMode
         ? "light-content"
         : navigation.statusBar.barStyle;
 //
 export const Layout = {
     sidebar: {
-    // All ViewStyle properties are allowed
+        // All ViewStyle properties are allowed
     },
     statusBar: {
         // Only backgroundColor and barStyle are allowed

@@ -22,7 +22,7 @@ import { getLocales } from "react-native-localize";
  * @returns {Promise.<boolean>}
  */
 export async function TakePicture(picture, pictureSource, pictureQuality, maximumWidth, maximumHeight) {
-	// BEGIN USER CODE
+    // BEGIN USER CODE
     if (!picture) {
         return Promise.reject(new Error("Input parameter 'Picture' is required"));
     }
@@ -282,5 +282,5 @@ export async function TakePicture(picture, pictureSource, pictureQuality, maximu
                 break;
         }
     }
-	// END USER CODE
+    // END USER CODE
 }

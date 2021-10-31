@@ -12,14 +12,14 @@ import { Big } from "big.js";
 
 /**
  * Parse the drop data JSON of ReactNativeDraggableList into a list of Mendix objects.
- * 
+ *
  * Any non-persistent object can be used, as long as it contains (at least) an integer seqNbr attribute and an itemId attribute, usually a string
  * @param {string} dropData
  * @param {string} entityToReturn
  * @returns {Promise.<MxObject[]>}
  */
 export async function ParseNativeDraggableListDropData(dropData, entityToReturn) {
-	// BEGIN USER CODE
+    // BEGIN USER CODE
 
     return new Promise((resolve, reject) => {
         if (!entityToReturn) {
@@ -54,5 +54,5 @@ export async function ParseNativeDraggableListDropData(dropData, entityToReturn)
         });
     }
 
-	// END USER CODE
+    // END USER CODE
 }

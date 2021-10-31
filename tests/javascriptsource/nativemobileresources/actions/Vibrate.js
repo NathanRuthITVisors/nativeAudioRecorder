@@ -16,10 +16,10 @@ import { Vibration } from "react-native";
  * @returns {Promise.<void>}
  */
 export async function Vibrate(duration) {
-	// BEGIN USER CODE
+    // BEGIN USER CODE
     // Documentation https://facebook.github.io/react-native/docs/vibration#vibrate
     const pattern = duration ? Number(duration) : 500;
     Vibration.vibrate(pattern, false);
     return Promise.resolve();
-	// END USER CODE
+    // END USER CODE
 }

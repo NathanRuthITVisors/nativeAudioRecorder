@@ -13,7 +13,7 @@ To customize any core styling, copy the part you want to customize to styles/nat
 ========================================================================== */
 export const Text = {
     container: {
-    // All ViewStyle properties are allowed
+        // All ViewStyle properties are allowed
     },
     text: {
         // numberOfLines & All TextStyle properties are allowed

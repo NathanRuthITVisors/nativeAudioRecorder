@@ -11,13 +11,13 @@ import { Big } from "big.js";
 
 import NativeFileDocumentsUtils from "../nativefiledocumentsutils";
 import RNFS from "react-native-fs";
-import { Platform } from 'react-native';
+import { Platform } from "react-native";
 
 // END EXTRA CODE
 
 /**
  * Unlinks (deletes) the item at filepath. If the item does not exist, an error will be thrown. Because unlink may be confusing for many Mendix developers and just 'delete' may be reserved it is called deleteItem.
- * 
+ *
  * Also recursively deletes directories (works like Linux rm -rf).
  * @param {string} filepath - The path to the file or directory.
  * @param {"NativeFileDocuments.PathType.FullPath"|"NativeFileDocuments.PathType.DocumentsDirectory"} pathType
@@ -25,38 +25,38 @@ import { Platform } from 'react-native';
  * @returns {Promise.<boolean>}
  */
 export async function deleteItem(filepath, pathType, writeToLog) {
-	// BEGIN USER CODE
-	return new Promise(function (resolve, reject) {
-		if (!filepath) {
-			reject("No file path specified");
-		}
-		if (!pathType) {
-			reject("No path type specified");
-		}
-		if (writeToLog) {
-			NativeFileDocumentsUtils.writeToLog({
-				actionName: "deleteItem",
-				logType: "Parameters",
-				logMessage: JSON.stringify({
-					filepath: filepath,
-					pathType: pathType
-				})
-			});
-		}
+    // BEGIN USER CODE
+    return new Promise(function (resolve, reject) {
+        if (!filepath) {
+            reject("No file path specified");
+        }
+        if (!pathType) {
+            reject("No path type specified");
+        }
+        if (writeToLog) {
+            NativeFileDocumentsUtils.writeToLog({
+                actionName: "deleteItem",
+                logType: "Parameters",
+                logMessage: JSON.stringify({
+                    filepath: filepath,
+                    pathType: pathType
+                })
+            });
+        }
 
-		const fullPath = NativeFileDocumentsUtils.getFullPath(filepath, pathType, RNFS, Platform.OS);
+        const fullPath = NativeFileDocumentsUtils.getFullPath(filepath, pathType, RNFS, Platform.OS);
 
-		if (writeToLog) {
-			NativeFileDocumentsUtils.writeToLog({
-				actionName: "deleteItem",
-				logType: "Info",
-				logMessage: "Full path: " + fullPath
-			});
-		}
+        if (writeToLog) {
+            NativeFileDocumentsUtils.writeToLog({
+                actionName: "deleteItem",
+                logType: "Info",
+                logMessage: "Full path: " + fullPath
+            });
+        }
 
-		RNFS.unlink(fullPath).then(() => {
-			resolve(true);
-		});
-	});
-	// END USER CODE
+        RNFS.unlink(fullPath).then(() => {
+            resolve(true);
+        });
+    });
+    // END USER CODE
 }

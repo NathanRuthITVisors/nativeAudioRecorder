@@ -22,7 +22,7 @@ import { getLocales } from "react-native-localize";
  * @returns {Promise.<MxObject>}
  */
 export async function TakePictureAdvanced(picture, pictureSource, pictureQuality, maximumWidth, maximumHeight) {
-	// BEGIN USER CODE
+    // BEGIN USER CODE
     if (!picture) {
         return Promise.reject(new Error("Input parameter 'Picture' is required"));
     }
@@ -330,5 +330,5 @@ export async function TakePictureAdvanced(picture, pictureSource, pictureQuality
                 break;
         }
     }
-	// END USER CODE
+    // END USER CODE
 }

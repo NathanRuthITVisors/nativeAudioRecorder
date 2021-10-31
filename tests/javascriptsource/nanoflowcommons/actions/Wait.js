@@ -16,12 +16,12 @@ import { Big } from "big.js";
  * @returns {Promise.<void>}
  */
 export async function Wait(delay) {
-	// BEGIN USER CODE
+    // BEGIN USER CODE
     if (delay == null) {
         return Promise.reject(new Error("Input parameter 'delay' is required."));
     }
     return new Promise(resolve => {
         setTimeout(() => resolve(), Number(delay));
     });
-	// END USER CODE
+    // END USER CODE
 }

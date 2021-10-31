@@ -50,7 +50,7 @@ export const ReferenceSelector = {
         ...DropDown.valueContainer
     },
     valueContainerDisabled: {
-    // All ViewStyle properties are allowed
+        // All ViewStyle properties are allowed
     },
     valueContainerFocused: {
         // All ViewStyle properties are allowed

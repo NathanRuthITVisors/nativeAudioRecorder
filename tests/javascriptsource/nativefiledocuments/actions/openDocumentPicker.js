@@ -20,76 +20,75 @@ import NativeFileDocumentsUtils from "../nativefiledocumentsutils";
  * @returns {Promise.<MxObject>}
  */
 export async function openDocumentPicker(allowedTypes, writeToLog) {
-	// BEGIN USER CODE
-	const resultMxObj = await NativeFileDocumentsUtils.createMxObject("NativeFileDocuments.DocumentPickerResult");
+    // BEGIN USER CODE
+    const resultMxObj = await NativeFileDocumentsUtils.createMxObject("NativeFileDocuments.DocumentPickerResult");
 
-	try {
-		// The contents of the file can only be directly accessed when copying it.
-		// Otherwise, Android will return another type of URI that needs to be resolved first 
-		const options = {
-			type: [DocumentPicker.types.allFiles],
-			copyTo: "cachesDirectory"
-		};
+    try {
+        // The contents of the file can only be directly accessed when copying it.
+        // Otherwise, Android will return another type of URI that needs to be resolved first
+        const options = {
+            type: [DocumentPicker.types.allFiles],
+            copyTo: "cachesDirectory"
+        };
 
-		if (allowedTypes) {
-			const allowedTypeArray = [];
-			for (const allowedType of allowedTypes.split(",")) {
-				const documentPickerType = DocumentPicker.types[allowedType];
-				if (documentPickerType) {
-					allowedTypeArray.push(documentPickerType);
-				} else {
-					const errorMessage = "openDocumentPicker: unknown type: " + allowedType;
-					console.error(errorMessage);
-					return Promise.reject(errorMessage); 
-				}
-			}
-			options.type = allowedTypeArray;
-		}
+        if (allowedTypes) {
+            const allowedTypeArray = [];
+            for (const allowedType of allowedTypes.split(",")) {
+                const documentPickerType = DocumentPicker.types[allowedType];
+                if (documentPickerType) {
+                    allowedTypeArray.push(documentPickerType);
+                } else {
+                    const errorMessage = "openDocumentPicker: unknown type: " + allowedType;
+                    console.error(errorMessage);
+                    return Promise.reject(errorMessage);
+                }
+            }
+            options.type = allowedTypeArray;
+        }
 
-		if (writeToLog) {
-			NativeFileDocumentsUtils.writeToLog({
-				actionName: "openDocumentPicker",
-				logType: "Parameters",
-				logMessage: JSON.stringify(options)
-			});
-		}
+        if (writeToLog) {
+            NativeFileDocumentsUtils.writeToLog({
+                actionName: "openDocumentPicker",
+                logType: "Parameters",
+                logMessage: JSON.stringify(options)
+            });
+        }
 
-		const pickerResult = await DocumentPicker.pick(options);
-		if (writeToLog) {
-			NativeFileDocumentsUtils.writeToLog({
-				actionName: "openDocumentPicker",
-				logType: "Info",
-				logMessage: "Result: " + JSON.stringify(pickerResult)
-			});
-		}
+        const pickerResult = await DocumentPicker.pick(options);
+        if (writeToLog) {
+            NativeFileDocumentsUtils.writeToLog({
+                actionName: "openDocumentPicker",
+                logType: "Info",
+                logMessage: "Result: " + JSON.stringify(pickerResult)
+            });
+        }
 
-		resultMxObj.set("DocumentPicked", true);
-		resultMxObj.set("Name", pickerResult.name);
-		resultMxObj.set("Uri", pickerResult.fileCopyUri ? pickerResult.fileCopyUri : pickerResult.uri);
-		resultMxObj.set("FileType", pickerResult.type);
-		return resultMxObj;
+        resultMxObj.set("DocumentPicked", true);
+        resultMxObj.set("Name", pickerResult.name);
+        resultMxObj.set("Uri", pickerResult.fileCopyUri ? pickerResult.fileCopyUri : pickerResult.uri);
+        resultMxObj.set("FileType", pickerResult.type);
+        return resultMxObj;
+    } catch (err) {
+        if (DocumentPicker.isCancel(err)) {
+            if (writeToLog) {
+                NativeFileDocumentsUtils.writeToLog({
+                    actionName: "openDocumentPicker",
+                    logType: "Info",
+                    logMessage: "Cancelled by user"
+                });
+            }
+            return resultMxObj;
+        } else {
+            if (writeToLog) {
+                NativeFileDocumentsUtils.writeToLog({
+                    actionName: "openDocumentPicker",
+                    logType: "Exception",
+                    logMessage: JSON.stringify(err)
+                });
+            }
+            return Promise.reject(err);
+        }
+    }
 
-	} catch(err) {
-		if (DocumentPicker.isCancel(err)) {
-			if (writeToLog) {
-				NativeFileDocumentsUtils.writeToLog({
-					actionName: "openDocumentPicker",
-					logType: "Info",
-					logMessage: "Cancelled by user"
-				});
-			}
-			return resultMxObj;
-		} else {
-			if (writeToLog) {
-				NativeFileDocumentsUtils.writeToLog({
-					actionName: "openDocumentPicker",
-					logType: "Exception",
-					logMessage: JSON.stringify(err)
-				});
-			}
-			return Promise.reject(err);
-		}
-	}
-
-	// END USER CODE
+    // END USER CODE
 }

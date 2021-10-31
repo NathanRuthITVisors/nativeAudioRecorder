@@ -17,11 +17,11 @@ import messaging from "@react-native-firebase/messaging";
  * @returns {Promise.<string>}
  */
 export async function GetPushNotificationToken() {
-	// BEGIN USER CODE
+    // BEGIN USER CODE
     // Documentation https://rnfirebase.io/docs/v5.x.x/messaging/reference/Messaging#getToken
     if (NativeModules && !NativeModules.RNFBMessagingModule) {
         return Promise.reject(new Error("Firebase module is not available in your app"));
     }
     return messaging().getToken();
-	// END USER CODE
+    // END USER CODE
 }

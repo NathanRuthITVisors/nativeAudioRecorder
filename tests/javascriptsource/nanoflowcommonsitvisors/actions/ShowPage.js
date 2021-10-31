@@ -20,7 +20,7 @@ import { Big } from "big.js";
  * @returns {Promise.<boolean>}
  */
 export async function ShowPage(pageName, contextObject, openType, waitForClose, title, popupCssSelector) {
-	// BEGIN USER CODE
+    // BEGIN USER CODE
     return new Promise(function (resolve, reject) {
         try {
             var context,
@@ -104,5 +104,5 @@ export async function ShowPage(pageName, contextObject, openType, waitForClose, 
             }
         }
     });
-	// END USER CODE
+    // END USER CODE
 }

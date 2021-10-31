@@ -15,8 +15,8 @@ import { Clipboard } from "react-native";
  * @returns {Promise.<string>}
  */
 export async function GetClipboardContent() {
-	// BEGIN USER CODE
+    // BEGIN USER CODE
     // Documentation https://facebook.github.io/react-native/docs/clipboard#getstring
     return Clipboard.getString();
-	// END USER CODE
+    // END USER CODE
 }

@@ -12,13 +12,13 @@ import { Big } from "big.js";
 
 /**
  * Converts a date to the number of milliseconds since January 1, 1970. Calls JavaScript getTime()
- * 
+ *
  * Returns empty if date is empty.
  * @param {Date} dateToConvert
  * @returns {Promise.<string>}
  */
 export async function DateTimeToMilliseconds(dateToConvert) {
-	// BEGIN USER CODE
+    // BEGIN USER CODE
     return new Promise(function (resolve, reject) {
         if (typeof dateToConvert !== "undefined" && dateToConvert !== null) {
             resolve("" + dateToConvert.getTime());
@@ -26,5 +26,5 @@ export async function DateTimeToMilliseconds(dateToConvert) {
         // Returning null does not work, needs to be undefined
         resolve(undefined);
     });
-	// END USER CODE
+    // END USER CODE
 }

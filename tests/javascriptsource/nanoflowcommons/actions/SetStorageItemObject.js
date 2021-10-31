@@ -18,7 +18,7 @@ import AsyncStorage from "@react-native-community/async-storage";
  * @returns {Promise.<void>}
  */
 export async function SetStorageItemObject(key, value) {
-	// BEGIN USER CODE
+    // BEGIN USER CODE
     if (!key) {
         return Promise.reject(new Error("Input parameter 'Key' is required"));
     }
@@ -46,5 +46,5 @@ export async function SetStorageItemObject(key, value) {
             { guid: object.getGuid() }
         );
     }
-	// END USER CODE
+    // END USER CODE
 }

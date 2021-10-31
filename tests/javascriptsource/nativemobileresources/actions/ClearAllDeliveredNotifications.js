@@ -17,7 +17,7 @@ import PushNotification from "react-native-push-notification";
  * @returns {Promise.<void>}
  */
 export async function ClearAllDeliveredNotifications() {
-	// BEGIN USER CODE
+    // BEGIN USER CODE
     // Documentation https://github.com/zo0r/react-native-push-notification
     const isIOS = Platform.OS === "ios";
     if (
@@ -28,5 +28,5 @@ export async function ClearAllDeliveredNotifications() {
     }
     PushNotification.removeAllDeliveredNotifications();
     return Promise.resolve();
-	// END USER CODE
+    // END USER CODE
 }

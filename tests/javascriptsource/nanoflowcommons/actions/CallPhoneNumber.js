@@ -16,7 +16,7 @@ import { Big } from "big.js";
  * @returns {Promise.<boolean>}
  */
 export async function CallPhoneNumber(phoneNumber) {
-	// BEGIN USER CODE
+    // BEGIN USER CODE
     if (!phoneNumber) {
         return Promise.reject(new Error("Input parameter 'Phone number' is required"));
     }
@@ -42,5 +42,5 @@ export async function CallPhoneNumber(phoneNumber) {
         return Promise.resolve(true);
     }
     return Promise.resolve(false);
-	// END USER CODE
+    // END USER CODE
 }

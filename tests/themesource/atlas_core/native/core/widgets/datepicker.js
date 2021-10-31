@@ -36,7 +36,7 @@ export const DatePicker = {
         color: font.colorTitle
     },
     pickerBackdropIOS: {
-    // All ViewStyle properties are allowed
+        // All ViewStyle properties are allowed
     },
     pickerTopIOS: {
         // All ViewStyle properties are allowed

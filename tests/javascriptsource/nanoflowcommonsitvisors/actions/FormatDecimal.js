@@ -18,7 +18,7 @@ import { Big } from "big.js";
  * @returns {Promise.<string>}
  */
 export async function FormatDecimal(decimalToFormat, numberOfDecimals, thousandSeparators) {
-	// BEGIN USER CODE
+    // BEGIN USER CODE
     return new Promise(function (resolve, reject) {
         var formattedDecimal, props;
         if (typeof decimalToFormat !== "undefined" && decimalToFormat !== null) {
@@ -44,5 +44,5 @@ export async function FormatDecimal(decimalToFormat, numberOfDecimals, thousandS
             resolve("");
         }
     });
-	// END USER CODE
+    // END USER CODE
 }

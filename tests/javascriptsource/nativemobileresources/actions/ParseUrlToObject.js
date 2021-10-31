@@ -55,9 +55,9 @@ function createMxObject(entity) {
 // END EXTRA CODE
 
 /**
- * This JavaScript action will create a new object and set all available attributes with their values. 
+ * This JavaScript action will create a new object and set all available attributes with their values.
  * For example the URL: https://john.doe:secret@www.example.com:123/forum/questions/?tag=networking&order=newest#top
- * 
+ *
  * - URL attributes:
  * protocol: "https:"
  * hash: "top"
@@ -71,11 +71,11 @@ function createMxObject(entity) {
  * username: "john.doe"
  * origin: "https://www.example.com:123"
  * href: "https://john.doe:secret@www.example.com:123/forum/questions/?tag=networking&order=newest#top"
- * 
+ *
  * - Dynamically based on the number of slashes in the paths:
  * path0: "forum"
  * path1: "questions"
- * 
+ *
  * - Dynamically based on the number of query keys:
  * tag: "networking"
  * order: "newest"
@@ -84,7 +84,7 @@ function createMxObject(entity) {
  * @returns {Promise.<MxObject>}
  */
 export async function ParseUrlToObject(uRL, entity) {
-	// BEGIN USER CODE
+    // BEGIN USER CODE
     return createParamObject(entity, uRL);
-	// END USER CODE
+    // END USER CODE
 }

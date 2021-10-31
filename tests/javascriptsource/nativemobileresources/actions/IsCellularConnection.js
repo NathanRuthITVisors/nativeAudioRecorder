@@ -15,7 +15,7 @@ import { fetch } from "@react-native-community/netinfo";
  * @returns {Promise.<boolean>}
  */
 export async function IsCellularConnection() {
-	// BEGIN USER CODE
+    // BEGIN USER CODE
     return fetch().then(info => info.type === "cellular");
-	// END USER CODE
+    // END USER CODE
 }

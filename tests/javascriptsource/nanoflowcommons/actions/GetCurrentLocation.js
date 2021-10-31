@@ -13,11 +13,11 @@ import Geolocation from "@react-native-community/geolocation";
 
 /**
  * This action retrieves the current geographical position of a user/device.
- * 
+ *
  * Since this can compromise privacy, the position is not available unless the user approves it. The web browser will request the permission at the first time the location is requested. When denied by the user it will not prompt a second time.
- * 
+ *
  * On hybrid and native platforms the permission can be requested with the `RequestLocationPermission` action.
- * 
+ *
  * Best practices:
  * https://developers.google.com/web/fundamentals/native-hardware/user-location/
  * @param {Big} timeout - The maximum length of time (in milliseconds) the device is allowed to take in order to return a location. If set as empty, default value will be 30 second timeout.
@@ -26,7 +26,7 @@ import Geolocation from "@react-native-community/geolocation";
  * @returns {Promise.<MxObject>}
  */
 export async function GetCurrentLocation(timeout, maximumAge, highAccuracy) {
-	// BEGIN USER CODE
+    // BEGIN USER CODE
     if (navigator && navigator.product === "ReactNative" && !navigator.geolocation) {
         navigator.geolocation = Geolocation;
     }
@@ -76,5 +76,5 @@ export async function GetCurrentLocation(timeout, maximumAge, highAccuracy) {
             return mxObject;
         }
     });
-	// END USER CODE
+    // END USER CODE
 }

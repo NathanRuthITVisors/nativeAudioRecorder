@@ -18,7 +18,7 @@ import AsyncStorage from "@react-native-community/async-storage";
  * @returns {Promise.<MxObject>}
  */
 export async function GetStorageItemObject(key, entity) {
-	// BEGIN USER CODE
+    // BEGIN USER CODE
     if (!key) {
         return Promise.reject(new Error("Input parameter 'Key' is required"));
     }
@@ -99,5 +99,5 @@ export async function GetStorageItemObject(key, entity) {
             { guid: object.getGuid() }
         );
     }
-	// END USER CODE
+    // END USER CODE
 }

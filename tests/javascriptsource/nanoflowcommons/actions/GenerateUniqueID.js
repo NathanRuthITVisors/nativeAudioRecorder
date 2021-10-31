@@ -46,7 +46,7 @@ function setItem(key, value) {
  * @returns {Promise.<string>}
  */
 export async function GenerateUniqueID() {
-	// BEGIN USER CODE
+    // BEGIN USER CODE
     const sessionId = mx.session.getConfig("sessionObjectId");
     const rnd = Math.round(Math.random() * 10000);
     // eslint-disable-next-line no-unmodified-loop-condition
@@ -60,5 +60,5 @@ export async function GenerateUniqueID() {
     await setItem(COUNTER_STORE, JSON.stringify(++currentCounter));
     locked = false;
     return `${sessionId}:${currentCounter}:${rnd}`;
-	// END USER CODE
+    // END USER CODE
 }

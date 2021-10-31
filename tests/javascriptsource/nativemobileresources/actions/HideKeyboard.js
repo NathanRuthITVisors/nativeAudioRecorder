@@ -15,9 +15,9 @@ import { Keyboard } from "react-native";
  * @returns {Promise.<void>}
  */
 export async function HideKeyboard() {
-	// BEGIN USER CODE
+    // BEGIN USER CODE
     // Documentation https://facebook.github.io/react-native/docs/keyboard
     Keyboard.dismiss();
     return Promise.resolve();
-	// END USER CODE
+    // END USER CODE
 }

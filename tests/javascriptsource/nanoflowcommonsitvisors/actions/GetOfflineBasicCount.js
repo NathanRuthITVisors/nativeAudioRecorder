@@ -14,10 +14,10 @@ import { addConstraint, addSort, checkDateConstraintsBasic } from "../GetOffline
 // END EXTRA CODE
 
 /**
- * Basic implementation for getting data offline. All constraints must match. 
- * 
+ * Basic implementation for getting data offline. All constraints must match.
+ *
  * The object count is returned, zero if not found.
- * 
+ *
  * @param {string} entityToReturn
  * @param {string} attribute1 - The attribute (or reference) to constrain on
  * @param {"NanoflowCommonsITvisors.GetOfflineOperator.equals"|"NanoflowCommonsITvisors.GetOfflineOperator.lessThan"|"NanoflowCommonsITvisors.GetOfflineOperator.lessThanOrEquals"|"NanoflowCommonsITvisors.GetOfflineOperator.greaterThan"|"NanoflowCommonsITvisors.GetOfflineOperator.greaterThanOrEquals"|"NanoflowCommonsITvisors.GetOfflineOperator.contains"} operator1 - One of equals (default), lessThan, lessThanOrEquals, greatherThan, greaterThanOrEquals, contains
@@ -39,8 +39,28 @@ import { addConstraint, addSort, checkDateConstraintsBasic } from "../GetOffline
  * @param {boolean} asc3
  * @returns {Promise.<Big>}
  */
-export async function GetOfflineBasicCount(entityToReturn, attribute1, operator1, value1, negate1, attribute2, operator2, value2, negate2, attribute3, operator3, value3, negate3, sort1, asc1, sort2, asc2, sort3, asc3) {
-	// BEGIN USER CODE
+export async function GetOfflineBasicCount(
+    entityToReturn,
+    attribute1,
+    operator1,
+    value1,
+    negate1,
+    attribute2,
+    operator2,
+    value2,
+    negate2,
+    attribute3,
+    operator3,
+    value3,
+    negate3,
+    sort1,
+    asc1,
+    sort2,
+    asc2,
+    sort3,
+    asc3
+) {
+    // BEGIN USER CODE
     return new Promise(function (resolve, reject) {
         try {
             var constraints = [],
@@ -81,5 +101,5 @@ export async function GetOfflineBasicCount(entityToReturn, attribute1, operator1
             }
         }
     });
-	// END USER CODE
+    // END USER CODE
 }

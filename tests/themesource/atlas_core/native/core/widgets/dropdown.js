@@ -47,7 +47,7 @@ export const DropDown = {
         backgroundColor: (_c = TextBox.inputDisabled) === null || _c === void 0 ? void 0 : _c.backgroundColor
     },
     valueFocused: {
-    // All TextStyle properties are allowed
+        // All TextStyle properties are allowed
     },
     validationMessage: {
         // All TextStyle properties are allowed
@@ -70,10 +70,10 @@ export const DropDown = {
         minHeight: input.input.minHeight
     },
     valueContainerDisabled: {
-    // All ViewStyle properties are allowed
+        // All ViewStyle properties are allowed
     },
     valueContainerFocused: {
-    // All ViewStyle properties are allowed
+        // All ViewStyle properties are allowed
     },
     iconStyle: {
         // All TextStyle properties are allowed
@@ -126,10 +126,10 @@ export const DropDown = {
         backgroundColor: input.input.backgroundColor
     },
     pickerItemIOS: {
-    // All TextStyle properties are allowed
+        // All TextStyle properties are allowed
     },
     pickerBackdropIOS: {
-    // All ViewStyle properties are allowed
+        // All ViewStyle properties are allowed
     },
     pickerTopIOS: {
         // All ViewStyle properties are allowed

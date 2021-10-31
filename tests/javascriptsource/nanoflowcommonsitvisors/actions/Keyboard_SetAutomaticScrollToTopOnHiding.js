@@ -12,15 +12,15 @@ import { Big } from "big.js";
 
 /**
  * Cordova Keyboard plugin. https://www.npmjs.com/package/cordova-plugin-keyboard
- * 
+ *
  * Specifies whether content of page would be automatically scrolled to the top of the page when keyboard is hiding.
- * 
+ *
  * Note that not the mendix page container but the viewport gets scrolled back into position. Any scroll position within the Mendix layout is left as is.
  * @param {boolean} newValue
  * @returns {Promise.<boolean>}
  */
 export async function Keyboard_SetAutomaticScrollToTopOnHiding(newValue) {
-	// BEGIN USER CODE
+    // BEGIN USER CODE
     return new Promise(function (resolve, reject) {
         if (typeof Keyboard !== "undefined") {
             Keyboard.automaticScrollToTopOnHiding = newValue;
@@ -29,5 +29,5 @@ export async function Keyboard_SetAutomaticScrollToTopOnHiding(newValue) {
             reject(Error("Keyboard plugin not available."));
         }
     });
-	// END USER CODE
+    // END USER CODE
 }

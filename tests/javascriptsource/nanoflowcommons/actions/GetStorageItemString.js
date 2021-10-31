@@ -13,12 +13,12 @@ import AsyncStorage from "@react-native-community/async-storage";
 
 /**
  * Retrieve a local stored string value identified by a unique key. This could be set via the SetStorageItemString JavaScript action.
- * 
+ *
  * @param {string} key - This field is required.
  * @returns {Promise.<string>}
  */
 export async function GetStorageItemString(key) {
-	// BEGIN USER CODE
+    // BEGIN USER CODE
     if (!key) {
         return Promise.reject(new Error("Input parameter 'Key' is required"));
     }
@@ -38,5 +38,5 @@ export async function GetStorageItemString(key) {
         }
         return Promise.reject(new Error("No storage API available"));
     }
-	// END USER CODE
+    // END USER CODE
 }

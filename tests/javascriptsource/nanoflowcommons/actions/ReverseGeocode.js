@@ -20,7 +20,7 @@ import Geodecoder from "react-native-geocoder";
  * @returns {Promise.<string>}
  */
 export async function ReverseGeocode(latitude, longitude, geocodingProvider, providerApiKey) {
-	// BEGIN USER CODE
+    // BEGIN USER CODE
     /**
      * Documentation:
      *  - Native: https://github.com/devfd/react-native-geocoder
@@ -109,5 +109,5 @@ export async function ReverseGeocode(latitude, longitude, geocodingProvider, pro
                 return `${location.street}, ${location.postalCode} ${city}, ${country}`;
         }
     }
-	// END USER CODE
+    // END USER CODE
 }

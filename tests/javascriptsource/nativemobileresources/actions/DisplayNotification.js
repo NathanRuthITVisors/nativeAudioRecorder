@@ -14,7 +14,7 @@ import PushNotification from "react-native-push-notification";
 
 /**
  * Displays the specified notification straight away.
- * 
+ *
  * Note: It is not possible to display a notification whilst the app is in the foreground on iOS 9.
  * @param {string} body - This field is required.
  * @param {string} title
@@ -25,7 +25,7 @@ import PushNotification from "react-native-push-notification";
  * @returns {Promise.<void>}
  */
 export async function DisplayNotification(body, title, subtitle, playSound, actionName, actionGuid) {
-	// BEGIN USER CODE
+    // BEGIN USER CODE
     // Documentation https://github.com/zo0r/react-native-push-notification
     const isIOS = Platform.OS === "ios";
     if (
@@ -74,5 +74,5 @@ export async function DisplayNotification(body, title, subtitle, playSound, acti
     }
     PushNotification.localNotification(notification);
     return Promise.resolve();
-	// END USER CODE
+    // END USER CODE
 }

@@ -1,15 +1,13 @@
-import { NativeModules } from "react-native";
+import { Appearance } from "react-native";
 
-export const darkMode =
-    NativeModules && NativeModules.RNDarkMode && NativeModules.RNDarkMode.initialMode
-        ? NativeModules.RNDarkMode.initialMode === "dark"
-        : false;
+export const darkMode = Appearance.getColorScheme() === "dark";
 
+//Big buttons styling
 export const defaultBadgeStyle = {
     container: {
-        flexDirection: "row",
-        borderRadius: 80,
-        overflow: "hidden",
+        //flexDirection: "row",
+        //borderRadius: 80,
+        //overflow: "hidden",
         //borderColor: "#000000",
         //borderWidth: 3,
         margin: 5,
@@ -23,9 +21,17 @@ export const defaultBadgeStyle = {
         justifyContent: "center",
         alignItems: "center",
         borderRadius: 80,
-        padding: 8,
+        //padding: 8,
         backgroundColor: "#ffffff"
     }
+};
+
+//Save/delete buttons styling
+
+const footerButton = {
+    padding: 10,
+    alignSelf: "stretch",
+    alignItems: "center"
 };
 
 export const defaultNativeAudioRecorderStyle = {
@@ -40,14 +46,28 @@ export const defaultNativeAudioRecorderStyle = {
         alignItems: "center",
         marginTop: "auto"
     },
-    footerButtonDisabled: {
-        backgroundColor: "lightgray",
-        color: "grey"
+    footerButtonSave: {
+        ...footerButton,
+        borderRadius: 5,
+        backgroundColor: "#2196F3"
     },
-    footerButton: {
-        padding: 10,
-        backgroundColor: "#2196F3",
-        color: "#FFFFFF"
+    footerButtonSaveDisabled: {
+        ...footerButton,
+        borderRadius: 5,
+        backgroundColor: "lightgray"
+    },
+    footerButtonDelete: {
+        ...footerButton,
+        backgroundColor: "transparent"
+    },
+    footerButtonTextSave: {
+        color: "white"
+    },
+    footerButtonTextDelete: {
+        color: "red"
+    },
+    footerButtonTextDeleteDisabled: {
+        color: darkMode ? "lightgrey" : "darkgrey"
     },
     bigButtons: {
         alignItems: "center",

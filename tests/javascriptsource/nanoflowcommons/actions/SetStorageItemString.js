@@ -18,7 +18,7 @@ import AsyncStorage from "@react-native-community/async-storage";
  * @returns {Promise.<void>}
  */
 export async function SetStorageItemString(key, value) {
-	// BEGIN USER CODE
+    // BEGIN USER CODE
     if (!key) {
         return Promise.reject(new Error("Input parameter 'Key' is required"));
     }
@@ -36,5 +36,5 @@ export async function SetStorageItemString(key, value) {
         }
         return Promise.reject(new Error("No storage API available"));
     }
-	// END USER CODE
+    // END USER CODE
 }

@@ -15,9 +15,9 @@ import { Big } from "big.js";
  * @returns {Promise.<boolean>}
  */
 export async function KeyboardPluginAvailable() {
-	// BEGIN USER CODE
+    // BEGIN USER CODE
     return new Promise(function (resolve, reject) {
         resolve(typeof Keyboard !== "undefined");
     });
-	// END USER CODE
+    // END USER CODE
 }

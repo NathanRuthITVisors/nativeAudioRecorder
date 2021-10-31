@@ -15,9 +15,9 @@ import { checkDateConstraintsFull } from "../GetOfflineUtils";
 
 /**
  * Get offline implementation using JSON strings as parameters. See getOffline at https://apidocs.mendix.com/7/client/mx.data.html for details.
- * 
+ *
  * Returns a list of objects, empty if not found.
- * 
+ *
  * Use DateTimeToMilliseconds to get the correct value to use for date constraints.
  * @param {string} entityToReturn
  * @param {string} constraintsJson
@@ -25,7 +25,7 @@ import { checkDateConstraintsFull } from "../GetOfflineUtils";
  * @returns {Promise.<MxObject[]>}
  */
 export async function GetOfflineFullList(entityToReturn, constraintsJson, filterJson) {
-	// BEGIN USER CODE
+    // BEGIN USER CODE
     return new Promise(function (resolve, reject) {
         try {
             var constraints, filter;
@@ -62,5 +62,5 @@ export async function GetOfflineFullList(entityToReturn, constraintsJson, filter
             }
         }
     });
-	// END USER CODE
+    // END USER CODE
 }

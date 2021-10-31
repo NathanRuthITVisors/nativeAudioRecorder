@@ -15,7 +15,7 @@ import RNFS from "react-native-fs";
  * @returns {Promise.<string>}
  */
 export async function getTemporaryDirectoryPath() {
-	// BEGIN USER CODE
-	return RNFS.TemporaryDirectoryPath;
-	// END USER CODE
+    // BEGIN USER CODE
+    return RNFS.TemporaryDirectoryPath;
+    // END USER CODE
 }

@@ -17,7 +17,7 @@ import { Big } from "big.js";
  * @returns {Promise.<string>}
  */
 export async function GetEnumValue(mxObject, enumAttribute, useCaption) {
-	// BEGIN USER CODE
+    // BEGIN USER CODE
 
     return new Promise(function (resolve, reject) {
         var caption,
@@ -59,5 +59,5 @@ export async function GetEnumValue(mxObject, enumAttribute, useCaption) {
             }
         }
     });
-	// END USER CODE
+    // END USER CODE
 }

@@ -13,7 +13,7 @@ To customize any core styling, copy the part you want to customize to styles/nat
 ========================================================================== */
 export const com_mendix_widget_native_linechart_LineChart = {
     container: {
-    // All ViewStyle properties are allowed
+        // All ViewStyle properties are allowed
     },
     errorMessage: {
         // All TextStyle properties are allowed
@@ -22,7 +22,7 @@ export const com_mendix_widget_native_linechart_LineChart = {
         fontWeight: font.weightNormal
     },
     chart: {
-    // All ViewStyle properties are allowed
+        // All ViewStyle properties are allowed
     },
     grid: {
         /*
@@ -119,7 +119,7 @@ export const com_mendix_widget_native_linechart_LineChart = {
         customLineStyles: {
             any_custom_line_style_name: {
                 line: {
-                /*
+                    /*
                 Allowed properties:
                   -  dashArray (string)
                   -  ending ("flat" or "round")
@@ -128,7 +128,7 @@ export const com_mendix_widget_native_linechart_LineChart = {
             */
                 },
                 markers: {
-                /*
+                    /*
                 Allowed properties:
                   -  backgroundColor (string)
                   -  borderColor (string)

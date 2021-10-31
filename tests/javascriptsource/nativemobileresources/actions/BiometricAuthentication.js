@@ -16,10 +16,10 @@ import TouchID from "react-native-touch-id";
  * @returns {Promise.<boolean>}
  */
 export async function BiometricAuthentication(reason) {
-	// BEGIN USER CODE
+    // BEGIN USER CODE
     // Documentation https://github.com/naoufal/react-native-touch-id
     return TouchID.authenticate(reason)
         .then(() => true)
         .catch(() => false);
-	// END USER CODE
+    // END USER CODE
 }

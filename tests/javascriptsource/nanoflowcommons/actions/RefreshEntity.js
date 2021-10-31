@@ -16,7 +16,7 @@ import { Big } from "big.js";
  * @returns {Promise.<void>}
  */
 export async function RefreshEntity(entityToRefresh) {
-	// BEGIN USER CODE
+    // BEGIN USER CODE
     if (!entityToRefresh) {
         return Promise.reject(new Error("EntityToRefresh parameter is required"));
     }
@@ -26,5 +26,5 @@ export async function RefreshEntity(entityToRefresh) {
             callback: () => resolve(true)
         });
     });
-	// END USER CODE
+    // END USER CODE
 }

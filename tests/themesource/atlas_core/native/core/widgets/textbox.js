@@ -13,10 +13,10 @@ To customize any core styling, copy the part you want to customize to styles/nat
 ========================================================================== */
 export const TextBox = {
     container: {
-    // All ViewStyle properties are allowed
+        // All ViewStyle properties are allowed
     },
     containerDisabled: {
-    // All ViewStyle properties are allowed
+        // All ViewStyle properties are allowed
     },
     label: {
         // numberOfLines and all TextStyle properties are allowed
@@ -55,7 +55,7 @@ export const TextBox = {
         backgroundColor: input.inputDisabled.backgroundColor
     },
     inputFocused: {
-    // autoCapitalize, placeholderTextColor, selectionColor, underlineColorAndroid and all TextStyle properties are allowed
+        // autoCapitalize, placeholderTextColor, selectionColor, underlineColorAndroid and all TextStyle properties are allowed
     },
     inputError: {
         // autoCapitalize, placeholderTextColor, selectionColor, underlineColorAndroid and all TextStyle properties are allowed

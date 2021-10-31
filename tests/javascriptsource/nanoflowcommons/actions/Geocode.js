@@ -19,7 +19,7 @@ import Geodecoder from "react-native-geocoder";
  * @returns {Promise.<MxObject>}
  */
 export async function Geocode(address, geocodingProvider, providerApiKey) {
-	// BEGIN USER CODE
+    // BEGIN USER CODE
     /**
      * Documentation:
      *  - Native: https://github.com/devfd/react-native-geocoder
@@ -119,5 +119,5 @@ export async function Geocode(address, geocodingProvider, providerApiKey) {
             });
         });
     }
-	// END USER CODE
+    // END USER CODE
 }

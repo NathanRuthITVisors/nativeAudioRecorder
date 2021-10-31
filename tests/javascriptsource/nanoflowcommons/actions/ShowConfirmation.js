@@ -19,7 +19,7 @@ import { Big } from "big.js";
  * @returns {Promise.<boolean>}
  */
 export async function ShowConfirmation(titleCaption, question, cancelButtonCaption, proceedButtonCaption) {
-	// BEGIN USER CODE
+    // BEGIN USER CODE
     if (!question) {
         return Promise.reject(new Error("Input parameter 'Question' is required"));
     }
@@ -46,5 +46,5 @@ export async function ShowConfirmation(titleCaption, question, cancelButtonCapti
             onCancel: () => resolve(false)
         });
     });
-	// END USER CODE
+    // END USER CODE
 }

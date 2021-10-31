@@ -16,12 +16,12 @@ import { Clipboard } from "react-native";
  * @returns {Promise.<void>}
  */
 export async function SetClipboardContent(content) {
-	// BEGIN USER CODE
+    // BEGIN USER CODE
     // Documentation https://facebook.github.io/react-native/docs/clipboard#setstring
     if (!content) {
         return Promise.reject(new Error("Input parameter 'Content' is required"));
     }
     Clipboard.setString(content);
     return Promise.resolve();
-	// END USER CODE
+    // END USER CODE
 }

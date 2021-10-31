@@ -69,12 +69,10 @@ function hslToRgb(hsl) {
     if (~h.indexOf("deg")) {
         h = h.substr(0, h.length - 3);
         // eslint-disable-next-line no-bitwise
-    }
-    else if (~h.indexOf("rad")) {
+    } else if (~h.indexOf("rad")) {
         h = Math.round(Number(h.substr(0, h.length - 3)) * (180 / Math.PI));
         // eslint-disable-next-line no-bitwise
-    }
-    else if (~h.indexOf("turn")) {
+    } else if (~h.indexOf("turn")) {
         h = Math.round(Number(h.substr(0, h.length - 4)) * 360);
     }
     h = Number(h);
@@ -91,28 +89,23 @@ function hslToRgb(hsl) {
         r = c;
         g = x;
         b = 0;
-    }
-    else if (60 <= h && h < 120) {
+    } else if (60 <= h && h < 120) {
         r = x;
         g = c;
         b = 0;
-    }
-    else if (120 <= h && h < 180) {
+    } else if (120 <= h && h < 180) {
         r = 0;
         g = c;
         b = x;
-    }
-    else if (180 <= h && h < 240) {
+    } else if (180 <= h && h < 240) {
         r = 0;
         g = x;
         b = c;
-    }
-    else if (240 <= h && h < 300) {
+    } else if (240 <= h && h < 300) {
         r = x;
         g = 0;
         b = c;
-    }
-    else if (300 <= h && h < 360) {
+    } else if (300 <= h && h < 360) {
         r = c;
         g = 0;
         b = x;
@@ -161,7 +154,7 @@ function rgbStringToRgb(rgb) {
 function rgbaToRgb(rgba) {
     let newAlpha = 1;
     let RGB = typeof rgba === "object" ? rgba : { r: 255, g: 255, b: 255 };
-    const calc = (val) => Math.round(newAlpha * (val / 255) * 255); // Calc best color contrast values
+    const calc = val => Math.round(newAlpha * (val / 255) * 255); // Calc best color contrast values
     // const calc = val => Math.round((RGB.a * (val / 255) + (RGB.a * ( 0 / 255))) * 255); // Calc best color contrast values
     if (typeof rgba === "string") {
         const val = rgba.replace(/rgba[(]|[)]/gm, "");
@@ -197,20 +190,16 @@ function rgbaToRgb(rgba) {
 function checkColor(color) {
     if (color in colors) {
         return colors[color.toLowerCase()];
-    }
-    else if (color[0] === "#") {
+    } else if (color[0] === "#") {
         return hexToRgb(color);
         // eslint-disable-next-line no-bitwise
-    }
-    else if (~color.indexOf("hsl")) {
+    } else if (~color.indexOf("hsl")) {
         return hslToRgb(color);
         // eslint-disable-next-line no-bitwise
-    }
-    else if (~color.indexOf("rgba")) {
+    } else if (~color.indexOf("rgba")) {
         return rgbaToRgb(color);
         // eslint-disable-next-line no-bitwise
-    }
-    else if (~color.indexOf("rgb")) {
+    } else if (~color.indexOf("rgb")) {
         return rgbStringToRgb(color);
     }
     return { r: 255, g: 255, b: 255 };

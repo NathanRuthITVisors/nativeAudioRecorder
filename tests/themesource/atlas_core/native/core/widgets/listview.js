@@ -12,10 +12,10 @@ To customize any core styling, copy the part you want to customize to styles/nat
 ========================================================================== */
 export const ListView = {
     container: {
-    // All ViewStyle properties are allowed
+        // All ViewStyle properties are allowed
     },
     listItem: {
-    // All ViewStyle properties are allowed
+        // All ViewStyle properties are allowed
     },
     listItemDisabled: {
         // All ViewStyle properties are allowed
