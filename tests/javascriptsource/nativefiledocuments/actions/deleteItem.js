@@ -11,7 +11,7 @@ import { Big } from "big.js";
 
 import NativeFileDocumentsUtils from "../nativefiledocumentsutils";
 import RNFS from "react-native-fs";
-import { Platform } from "react-native";
+import { Platform } from 'react-native';
 
 // END EXTRA CODE
 
@@ -26,37 +26,37 @@ import { Platform } from "react-native";
  */
 export async function deleteItem(filepath, pathType, writeToLog) {
 	// BEGIN USER CODE
-    return new Promise(function (resolve, reject) {
-        if (!filepath) {
-            reject("No file path specified");
-        }
-        if (!pathType) {
-            reject("No path type specified");
-        }
-        if (writeToLog) {
-            NativeFileDocumentsUtils.writeToLog({
-                actionName: "deleteItem",
-                logType: "Parameters",
-                logMessage: JSON.stringify({
-                    filepath: filepath,
-                    pathType: pathType
-                })
-            });
-        }
+	return new Promise(function (resolve, reject) {
+		if (!filepath) {
+			reject("No file path specified");
+		}
+		if (!pathType) {
+			reject("No path type specified");
+		}
+		if (writeToLog) {
+			NativeFileDocumentsUtils.writeToLog({
+				actionName: "deleteItem",
+				logType: "Parameters",
+				logMessage: JSON.stringify({
+					filepath: filepath,
+					pathType: pathType
+				})
+			});
+		}
 
-        const fullPath = NativeFileDocumentsUtils.getFullPath(filepath, pathType, RNFS, Platform.OS);
+		const fullPath = NativeFileDocumentsUtils.getFullPath(filepath, pathType, RNFS, Platform.OS);
 
-        if (writeToLog) {
-            NativeFileDocumentsUtils.writeToLog({
-                actionName: "deleteItem",
-                logType: "Info",
-                logMessage: "Full path: " + fullPath
-            });
-        }
+		if (writeToLog) {
+			NativeFileDocumentsUtils.writeToLog({
+				actionName: "deleteItem",
+				logType: "Info",
+				logMessage: "Full path: " + fullPath
+			});
+		}
 
-        RNFS.unlink(fullPath).then(() => {
-            resolve(true);
-        });
-    });
+		RNFS.unlink(fullPath).then(() => {
+			resolve(true);
+		});
+	});
 	// END USER CODE
 }

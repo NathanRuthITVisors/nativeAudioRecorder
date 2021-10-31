@@ -11,7 +11,7 @@ import { Big } from "big.js";
 
 import NativeFileDocumentsUtils from "../nativefiledocumentsutils";
 import RNFS from "react-native-fs";
-import { Platform } from "react-native";
+import { Platform } from 'react-native';
 
 // END EXTRA CODE
 
@@ -24,49 +24,49 @@ import { Platform } from "react-native";
  */
 export async function readDir(dirpath, pathType, writeToLog) {
 	// BEGIN USER CODE
-    if (!dirpath && pathType !== "DocumentsDirectory") {
-        Promise.reject("No file path specified");
-    }
-    if (!pathType) {
-        Promise.reject("No path type specified");
-    }
-    if (writeToLog) {
-        NativeFileDocumentsUtils.writeToLog({
-            actionName: "readDir",
-            logType: "Parameters",
-            logMessage: JSON.stringify({
-                dirpath: dirpath,
-                pathType: pathType
-            })
-        });
-    }
+	if (!dirpath && pathType !== "DocumentsDirectory") {
+		Promise.reject("No file path specified");
+	}
+	if (!pathType) {
+		Promise.reject("No path type specified");
+	}
+	if (writeToLog) {
+		NativeFileDocumentsUtils.writeToLog({
+			actionName: "readDir",
+			logType: "Parameters",
+			logMessage: JSON.stringify({
+				dirpath: dirpath,
+				pathType: pathType
+			})
+		});
+	}
 
-    const fullPath = NativeFileDocumentsUtils.getFullPath(dirpath, pathType, RNFS, Platform.OS);
+	const fullPath = NativeFileDocumentsUtils.getFullPath(dirpath, pathType, RNFS, Platform.OS);
 
-    if (writeToLog) {
-        NativeFileDocumentsUtils.writeToLog({
-            actionName: "readDir",
-            logType: "Info",
-            logMessage: "readDir fullPath: " + fullPath
-        });
-    }
+	if (writeToLog) {
+		NativeFileDocumentsUtils.writeToLog({
+			actionName: "readDir",
+			logType: "Info",
+			logMessage: "readDir fullPath: " + fullPath
+		});
+	}
 
-    const dirItemArray = await RNFS.readDir(fullPath);
+	const dirItemArray = await RNFS.readDir(fullPath);
 
-    const resultArray = [];
+	const resultArray = [];
 
-    for (item of dirItemArray) {
-        const newResultItem = await NativeFileDocumentsUtils.createMxObject("NativeFileDocuments.ReadDirItem");
-        newResultItem.set("Name", item.name);
-        newResultItem.set("Path", item.path);
-        newResultItem.set("Size", item.size);
-        newResultItem.set("IsFile", item.isFile());
-        newResultItem.set("IsDirectory", item.isDirectory());
-        newResultItem.set("LastModified", item.mtime);
-        resultArray.push(newResultItem);
-    }
+	for (item of dirItemArray) {
+		const newResultItem = await NativeFileDocumentsUtils.createMxObject("NativeFileDocuments.ReadDirItem");
+		newResultItem.set("Name", item.name);
+		newResultItem.set("Path", item.path);
+		newResultItem.set("Size", item.size);
+		newResultItem.set("IsFile", item.isFile());
+		newResultItem.set("IsDirectory", item.isDirectory());
+		newResultItem.set("LastModified", item.mtime);
+		resultArray.push(newResultItem);
+	}
 
-    return resultArray;
+	return resultArray;
 
 	// END USER CODE
 }

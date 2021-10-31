@@ -11,7 +11,7 @@ import { Big } from "big.js";
 
 import NativeFileDocumentsUtils from "../nativefiledocumentsutils";
 import RNFS from "react-native-fs";
-import { Platform } from "react-native";
+import { Platform } from 'react-native';
 
 // END EXTRA CODE
 
@@ -27,48 +27,46 @@ import { Platform } from "react-native";
  */
 export async function mkdir(dirpath, pathType, excludeFromBackup, writeToLog) {
 	// BEGIN USER CODE
-    return new Promise(function (resolve, reject) {
-        if (!dirpath) {
-            reject("No file path specified");
-        }
-        if (!pathType) {
-            reject("No path type specified");
-        }
-        if (writeToLog) {
-            NativeFileDocumentsUtils.writeToLog({
-                actionName: "mkdir",
-                logType: "Parameters",
-                logMessage: JSON.stringify({
-                    dirpath: dirpath,
-                    pathType: pathType
-                })
-            });
-        }
+	return new Promise(function (resolve, reject) {
+		if (!dirpath) {
+			reject("No file path specified");
+		}
+		if (!pathType) {
+			reject("No path type specified");
+		}
+		if (writeToLog) {
+			NativeFileDocumentsUtils.writeToLog({
+				actionName: "mkdir",
+				logType: "Parameters",
+				logMessage: JSON.stringify({
+					dirpath: dirpath,
+					pathType: pathType
+				})
+			});
+		}
 
-        const fullPath = NativeFileDocumentsUtils.getFullPath(dirpath, pathType, RNFS, Platform.OS);
+		const fullPath = NativeFileDocumentsUtils.getFullPath(dirpath, pathType, RNFS, Platform.OS);
 
-        let options = {};
-        if (Platform.OS === "ios" && excludeFromBackup) {
-            // Only supported on iOS
-            options.NSURLIsExcludedFromBackupKey = true;
-        }
+		let options = {};
+		if (Platform.OS === "ios" && excludeFromBackup) {
+			// Only supported on iOS
+			options.NSURLIsExcludedFromBackupKey = true;
+		}
 
-        if (writeToLog) {
-            NativeFileDocumentsUtils.writeToLog({
-                actionName: "mkdir",
-                logType: "Info",
-                logMessage:
-                    "mkdir options: " +
-                    JSON.stringify({
-                        fullPath: fullPath,
-                        options: options
-                    })
-            });
-        }
+		if (writeToLog) {
+			NativeFileDocumentsUtils.writeToLog({
+				actionName: "mkdir",
+				logType: "Info",
+				logMessage: "mkdir options: " + JSON.stringify({
+					fullPath: fullPath,
+					options: options
+				})
+			});
+		}
 
-        RNFS.mkdir(fullPath, options).then(() => {
-            resolve(true);
-        });
-    });
+		RNFS.mkdir(fullPath, options).then(() => {
+			resolve(true);
+		});
+	});
 	// END USER CODE
 }

@@ -11,7 +11,7 @@ import { Big } from "big.js";
 
 import NativeFileDocumentsUtils from "../nativefiledocumentsutils";
 import RNFS from "react-native-fs";
-import { Platform } from "react-native";
+import { Platform } from 'react-native';
 
 // END EXTRA CODE
 
@@ -25,34 +25,34 @@ import { Platform } from "react-native";
 export async function exists(filepath, pathType, writeToLog) {
 	// BEGIN USER CODE
 
-    if (!filepath) {
-        Promise.reject("No file path specified");
-    }
-    if (!pathType) {
-        Promise.reject("No path type specified");
-    }
-    if (writeToLog) {
-        NativeFileDocumentsUtils.writeToLog({
-            actionName: "exists",
-            logType: "Parameters",
-            logMessage: JSON.stringify({
-                filepath: filepath,
-                pathType: pathType
-            })
-        });
-    }
+	if (!filepath) {
+		Promise.reject("No file path specified");
+	}
+	if (!pathType) {
+		Promise.reject("No path type specified");
+	}
+	if (writeToLog) {
+		NativeFileDocumentsUtils.writeToLog({
+			actionName: "exists",
+			logType: "Parameters",
+			logMessage: JSON.stringify({
+				filepath: filepath,
+				pathType: pathType
+			})
+		});
+	}
 
-    const fullPath = NativeFileDocumentsUtils.getFullPath(filepath, pathType, RNFS, Platform.OS);
+	const fullPath = NativeFileDocumentsUtils.getFullPath(filepath, pathType, RNFS, Platform.OS);
 
-    if (writeToLog) {
-        NativeFileDocumentsUtils.writeToLog({
-            actionName: "exists",
-            logType: "Info",
-            logMessage: "Full path: " + fullPath
-        });
-    }
+	if (writeToLog) {
+		NativeFileDocumentsUtils.writeToLog({
+			actionName: "exists",
+			logType: "Info",
+			logMessage: "Full path: " + fullPath
+		});
+	}
 
-    return RNFS.exists(fullPath);
+	return RNFS.exists(fullPath);
 
 	// END USER CODE
 }

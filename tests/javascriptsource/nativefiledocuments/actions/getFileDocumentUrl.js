@@ -17,9 +17,9 @@ import { Big } from "big.js";
  */
 export async function getFileDocumentUrl(mendixFileDocument) {
 	// BEGIN USER CODE
-    const guid = mendixFileDocument.getGuid();
-    // Need to pass the right change date to the function.
-    const changeDateMillis = mendixFileDocument.get("changedDate");
-    return mx.data.getDocumentUrl(guid, changeDateMillis, false);
+	const guid = mendixFileDocument.getGuid();
+	// Need to pass the right change date to the function.
+	const changeDateMillis = mendixFileDocument.get("changedDate");
+	return mx.data.getDocumentUrl(guid, changeDateMillis, false);
 	// END USER CODE
 }

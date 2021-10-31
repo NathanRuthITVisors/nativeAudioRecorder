@@ -11,7 +11,7 @@ import { Big } from "big.js";
 
 import NativeFileDocumentsUtils from "../nativefiledocumentsutils";
 import RNFS from "react-native-fs";
-import { Platform } from "react-native";
+import { Platform } from 'react-native';
 
 // END EXTRA CODE
 
@@ -29,62 +29,62 @@ import { Platform } from "react-native";
 export async function saveToMendixFileDocument(filepath, pathType, fileDocument, fileName, writeToLog) {
 	// BEGIN USER CODE
 
-    if (!filepath) {
-        Promise.reject("No file path specified");
-    }
-    if (!pathType) {
-        Promise.reject("No path type specified");
-    }
-    if (!fileDocument) {
-        Promise.reject("No file document specified");
-    }
+	if (!filepath) {
+		Promise.reject("No file path specified");
+	}
+	if (!pathType) {
+		Promise.reject("No path type specified");
+	}
+	if (!fileDocument) {
+		Promise.reject("No file document specified");
+	}
     if (!fileDocument.inheritsFrom("System.FileDocument")) {
         const entity = picfileDocumentture.getEntity();
         Promise.reject(new Error("Entity " + entity + " does not inherit from System.FileDocument"));
     }
-    if (!fileName) {
-        Promise.reject("No file name specified");
-    }
-    const guid = fileDocument.getGuid();
-    if (writeToLog) {
-        NativeFileDocumentsUtils.writeToLog({
-            actionName: "saveToMendixFileDocument",
-            logType: "Parameters",
-            logMessage: JSON.stringify({
-                filepath: filepath,
-                pathType: pathType,
-                guid: guid
-            })
-        });
-    }
+	if (!fileName) {
+		Promise.reject("No file name specified");
+	}
+	const guid = fileDocument.getGuid();
+	if (writeToLog) {
+		NativeFileDocumentsUtils.writeToLog({
+			actionName: "saveToMendixFileDocument",
+			logType: "Parameters",
+			logMessage: JSON.stringify({
+				filepath: filepath,
+				pathType: pathType,
+				guid: guid
+			})
+		});
+	}
 
-    const fullPath = NativeFileDocumentsUtils.getFullPath(filepath, pathType, RNFS, Platform.OS);
+	const fullPath = NativeFileDocumentsUtils.getFullPath(filepath, pathType, RNFS, Platform.OS);
 
-    if (writeToLog) {
-        NativeFileDocumentsUtils.writeToLog({
-            actionName: "saveToMendixFileDocument",
-            logType: "Info",
-            logMessage: "Full path: " + fullPath
-        });
-    }
+	if (writeToLog) {
+		NativeFileDocumentsUtils.writeToLog({
+			actionName: "saveToMendixFileDocument",
+			logType: "Info",
+			logMessage: "Full path: " + fullPath
+		});
+	}
 
-    return new Promise((resolve, reject) => {
-        fetch(fullPath)
-            .then(res => res.blob())
-            .then(blob => {
-                const onSuccess = () => resolve(true);
-                const onError = error => {
-                    // If this fails, always write a log entry
-                    NativeFileDocumentsUtils.writeToLog({
-                        actionName: "saveToMendixFileDocument",
-                        logType: "Exception",
-                        logMessage: JSON.stringify(error)
-                    });
-                    reject(error);
-                };
-                mx.data.saveDocument(guid, fileName, {}, blob, onSuccess, onError);
-            });
-    });
+	return new Promise((resolve, reject) => {
+		fetch(fullPath)
+			.then(res => res.blob())
+			.then(blob => {
+			const onSuccess = () => resolve(true);
+			const onError = (error) => {
+				// If this fails, always write a log entry
+				NativeFileDocumentsUtils.writeToLog({
+					actionName: "saveToMendixFileDocument",
+					logType: "Exception",
+					logMessage: JSON.stringify(error)
+				});
+				reject(error)
+			};
+			mx.data.saveDocument(guid, fileName, {}, blob, onSuccess, onError);
+		});
+	});
 
 	// END USER CODE
 }
