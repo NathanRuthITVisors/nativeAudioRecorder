@@ -6,7 +6,7 @@
 // - the code between BEGIN EXTRA CODE and END EXTRA CODE
 // Other code you write will be lost the next time you deploy the project.
 import { Big } from "big.js";
-import AsyncStorage from "@react-native-community/async-storage";
+import AsyncStorage from '@react-native-community/async-storage';
 
 // BEGIN EXTRA CODE
 // END EXTRA CODE
@@ -18,7 +18,7 @@ import AsyncStorage from "@react-native-community/async-storage";
  * @returns {Promise.<MxObject>}
  */
 export async function GetStorageItemObject(key, entity) {
-    // BEGIN USER CODE
+	// BEGIN USER CODE
     if (!key) {
         return Promise.reject(new Error("Input parameter 'Key' is required"));
     }
@@ -59,7 +59,8 @@ export async function GetStorageItemObject(key, entity) {
         return getMxObject(value.guid).then(existingObject => {
             if (existingObject) {
                 return existingObject;
-            } else {
+            }
+            else {
                 return createMxObject(entity, value);
             }
         });
@@ -81,9 +82,9 @@ export async function GetStorageItemObject(key, entity) {
                     Object.keys(value)
                         .filter(attribute => attribute !== "guid")
                         .forEach(attributeName => {
-                            const attributeValue = value[attributeName];
-                            mxObject.set(attributeName, attributeValue);
-                        });
+                        const attributeValue = value[attributeName];
+                        mxObject.set(attributeName, attributeValue);
+                    });
                     resolve(mxObject);
                 },
                 error: () => reject(new Error(`Could not create '${entity}' object`))
@@ -91,13 +92,10 @@ export async function GetStorageItemObject(key, entity) {
         });
     }
     function serializeMxObject(object) {
-        return object.getAttributes().reduce(
-            (accumulator, attributeName) => {
-                accumulator[attributeName] = object.get(attributeName);
-                return accumulator;
-            },
-            { guid: object.getGuid() }
-        );
+        return object.getAttributes().reduce((accumulator, attributeName) => {
+            accumulator[attributeName] = object.get(attributeName);
+            return accumulator;
+        }, { guid: object.getGuid() });
     }
-    // END USER CODE
+	// END USER CODE
 }

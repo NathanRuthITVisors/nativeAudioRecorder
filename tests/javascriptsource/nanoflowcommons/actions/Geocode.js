@@ -6,7 +6,7 @@
 // - the code between BEGIN EXTRA CODE and END EXTRA CODE
 // Other code you write will be lost the next time you deploy the project.
 import { Big } from "big.js";
-import Geodecoder from "react-native-geocoder";
+import Geodecoder from 'react-native-geocoder';
 
 // BEGIN EXTRA CODE
 // END EXTRA CODE
@@ -19,7 +19,7 @@ import Geodecoder from "react-native-geocoder";
  * @returns {Promise.<MxObject>}
  */
 export async function Geocode(address, geocodingProvider, providerApiKey) {
-    // BEGIN USER CODE
+	// BEGIN USER CODE
     /**
      * Documentation:
      *  - Native: https://github.com/devfd/react-native-geocoder
@@ -47,13 +47,9 @@ export async function Geocode(address, geocodingProvider, providerApiKey) {
     }
     const url = getApiUrl(geocodingProvider, address, providerApiKey);
     return fetch(url)
-        .then(response =>
-            response.json().catch(() =>
-                response.text().then(text => {
-                    return Promise.reject(new Error(text));
-                })
-            )
-        )
+        .then(response => response.json().catch(() => response.text().then(text => {
+        return Promise.reject(new Error(text));
+    })))
         .then(response => getLatLong(geocodingProvider, response))
         .then(latLong => createMxObject(latLong[0], latLong[1]))
         .catch(error => Promise.reject(error));
@@ -119,5 +115,5 @@ export async function Geocode(address, geocodingProvider, providerApiKey) {
             });
         });
     }
-    // END USER CODE
+	// END USER CODE
 }

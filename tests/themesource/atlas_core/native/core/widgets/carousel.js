@@ -18,7 +18,7 @@ const carouselFullWidthLayout = {
         height: 250
     },
     inactiveSlideItem: {
-        // Only opacity and scale are allowed
+    // Only opacity and scale are allowed
     },
     pagination: {
         container: {
@@ -108,7 +108,7 @@ const carouselCardLayout = {
 };
 export const com_mendix_widget_native_carousel_Carousel = {
     container: {
-        // All ViewStyle properties are allowed
+    // All ViewStyle properties are allowed
     },
     fullWidthLayout: carouselFullWidthLayout,
     cardLayout: carouselCardLayout,

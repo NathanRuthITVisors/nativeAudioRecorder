@@ -11,9 +11,9 @@
 ========================================================================== */
 export const com_mendix_widget_native_backgroundimage_BackgroundImage = {
     container: {
-        // All ViewStyle properties are allowed
+    // All ViewStyle properties are allowed
     },
     image: {
-        // svgColor and all ImageStyle properties are allowed
+    // svgColor and all ImageStyle properties are allowed
     }
 };

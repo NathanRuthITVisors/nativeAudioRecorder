@@ -22,65 +22,69 @@ import NativeFileDocumentsUtils from "../nativefiledocumentsutils";
  * @returns {Promise.<MxObject>}
  */
 export async function downloadFile(fromUrl, toFile, progressInterval, progressDivider, readTimeout, writeToLog) {
-    // BEGIN USER CODE
-    if (!fromUrl) throw new Exception("No from URL set.");
-    if (!toFile) throw new Exception("No to file set.");
-    if (!progressInterval) throw new Exception("No progress interval set.");
-    if (!progressDivider) throw new Exception("No progress divider set.");
-    if (!readTimeout) throw new Exception("No read timeout set.");
+	// BEGIN USER CODE
+	if (!fromUrl)
+		throw new Exception("No from URL set.");
+	if (!toFile)
+		throw new Exception("No to file set.");
+	if (!progressInterval)
+		throw new Exception("No progress interval set.");
+	if (!progressDivider)
+		throw new Exception("No progress divider set.");
+	if (!readTimeout)
+		throw new Exception("No read timeout set.");
+	
+	if (writeToLog) {
+		NativeFileDocumentsUtils.writeToLog({
+			actionName: "downloadFile",
+			logType: "Info",
+			logMessage: "Downloading: " + fromUrl + " to " + toFile
+		});
+	}
 
-    if (writeToLog) {
-        NativeFileDocumentsUtils.writeToLog({
-            actionName: "downloadFile",
-            logType: "Info",
-            logMessage: "Downloading: " + fromUrl + " to " + toFile
-        });
-    }
+	let result = await NativeFileDocumentsUtils.createMxObject('NativeFileDocuments.DownloadFileProgress');
+	result.set('LocalUrl', toFile);
+	let downloadResult = RNFS.downloadFile({
+		fromUrl:  fromUrl,
+		toFile: toFile,
+		progressInterval: Number(parseInt(progressInterval.valueOf())),
+		progressDivider: Number(parseInt(progressDivider.valueOf())),
+		readTimeout: Number(readTimeout),
+		progress: (p) => {
+			result.set('ContentLength', p.contentLength);
+			result.set('BytesWritten', p.bytesWritten);
+			let percentage = new Big(((p.bytesWritten / p.contentLength) * 100));
+			result.set('ProgressPercentage', percentage.round(2));
+		}
+	});
 
-    let result = await NativeFileDocumentsUtils.createMxObject("NativeFileDocuments.DownloadFileProgress");
-    result.set("LocalUrl", toFile);
-    let downloadResult = RNFS.downloadFile({
-        fromUrl: fromUrl,
-        toFile: toFile,
-        progressInterval: Number(parseInt(progressInterval.valueOf())),
-        progressDivider: Number(parseInt(progressDivider.valueOf())),
-        readTimeout: Number(readTimeout),
-        progress: p => {
-            result.set("ContentLength", p.contentLength);
-            result.set("BytesWritten", p.bytesWritten);
-            let percentage = new Big((p.bytesWritten / p.contentLength) * 100);
-            result.set("ProgressPercentage", percentage.round(2));
-        }
-    });
+	let downloadPromise = downloadResult.promise.then((p) => {
+		result.set('BytesWritten', p.bytesWritten);
+		result.set('Finished', true);
+		result.set('ProgressPercentage', 100);
+		result.set('Success', true);
 
-    let downloadPromise = downloadResult.promise
-        .then(p => {
-            result.set("BytesWritten", p.bytesWritten);
-            result.set("Finished", true);
-            result.set("ProgressPercentage", 100);
-            result.set("Success", true);
+		NativeFileDocumentsUtils.writeToLog({
+			actionName: "downloadFile",
+			logType: "Info",
+			logMessage: "Download finished (" + fromUrl + " to " + toFile + ")"
+		});
+	}).
+	catch((e) => {
+		NativeFileDocumentsUtils.writeToLog({
+			actionName: "downloadFile",
+			logType: "Exception",
+			logMessage: JSON.stringify(e)
+		});
 
-            NativeFileDocumentsUtils.writeToLog({
-                actionName: "downloadFile",
-                logType: "Info",
-                logMessage: "Download finished (" + fromUrl + " to " + toFile + ")"
-            });
-        })
-        .catch(e => {
-            NativeFileDocumentsUtils.writeToLog({
-                actionName: "downloadFile",
-                logType: "Exception",
-                logMessage: JSON.stringify(e)
-            });
+		result.set('Finished', true);
+		result.set('Error', true);
+		result.set('ErrorMessage', e);
+	});
+	
+	result.set('JobId', downloadResult.jobId);
+	result.set('StatusCode', downloadResult.statusCode);
 
-            result.set("Finished", true);
-            result.set("Error", true);
-            result.set("ErrorMessage", e);
-        });
-
-    result.set("JobId", downloadResult.jobId);
-    result.set("StatusCode", downloadResult.statusCode);
-
-    return result;
-    // END USER CODE
+	return result;
+	// END USER CODE
 }

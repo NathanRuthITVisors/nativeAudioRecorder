@@ -23,11 +23,10 @@
         "url": "https://github.com/Nathan Ruth/nativeaudiorecorder/issues"
     },
     "devDependencies": {
-        "@mendix/pluggable-widgets-tools": "^9.5.4",
-        "prettier": "2.4.1"
+        "@mendix/pluggable-widgets-tools": "^9.5.4"
     },
     "dependencies": {
         "react-native-audio-recorder-player": "^3.2.0",
-        "react-native-permissions": "^2.2.2"
+        "react-native-permissions": "^3.0.4"
     }
 }

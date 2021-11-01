@@ -17,7 +17,7 @@ import { Big } from "big.js";
  * @returns {Promise.<MxObject>}
  */
 export async function GetObjectByGuid(entity, objectGuid) {
-    // BEGIN USER CODE
+	// BEGIN USER CODE
     if (!entity) {
         return Promise.reject(new Error("Input parameter 'Entity' is required."));
     }
@@ -30,11 +30,12 @@ export async function GetObjectByGuid(entity, objectGuid) {
             callback: object => {
                 if (object) {
                     resolve(object);
-                } else {
+                }
+                else {
                     reject(new Error("'Object guid' not found"));
                 }
             }
         });
     });
-    // END USER CODE
+	// END USER CODE
 }

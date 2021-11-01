@@ -6,7 +6,7 @@
 // - the code between BEGIN EXTRA CODE and END EXTRA CODE
 // Other code you write will be lost the next time you deploy the project.
 import { Big } from "big.js";
-import TouchID from "react-native-touch-id";
+import TouchID from 'react-native-touch-id';
 
 // BEGIN EXTRA CODE
 // END EXTRA CODE
@@ -15,10 +15,10 @@ import TouchID from "react-native-touch-id";
  * @returns {Promise.<boolean>}
  */
 export async function IsBiometricAuthenticationSupported() {
-    // BEGIN USER CODE
+	// BEGIN USER CODE
     // Documentation https://github.com/naoufal/react-native-touch-id
     return TouchID.isSupported()
         .then(() => true)
         .catch(() => false);
-    // END USER CODE
+	// END USER CODE
 }

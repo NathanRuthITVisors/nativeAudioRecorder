@@ -11,7 +11,7 @@ import { Big } from "big.js";
 
 import NativeFileDocumentsUtils from "../nativefiledocumentsutils";
 import RNFS from "react-native-fs";
-import { Platform } from "react-native";
+import { Platform } from 'react-native';
 
 // END EXTRA CODE
 
@@ -24,44 +24,44 @@ import { Platform } from "react-native";
  * @returns {Promise.<boolean>}
  */
 export async function writeFile(filepath, pathType, base64Data, writeToLog) {
-    // BEGIN USER CODE
+	// BEGIN USER CODE
 
-    return new Promise(function (resolve, reject) {
-        if (!filepath) {
-            reject("No file path specified");
-        }
-        if (!pathType) {
-            reject("No path type specified");
-        }
-        if (!base64Data) {
-            reject("No data specified");
-        }
-        if (writeToLog) {
-            NativeFileDocumentsUtils.writeToLog({
-                actionName: "writeFile",
-                logType: "Parameters",
-                logMessage: JSON.stringify({
-                    filepath: filepath,
-                    pathType: pathType,
-                    dataLength: base64Data.length
-                })
-            });
-        }
+	return new Promise(function (resolve, reject) {
+		if (!filepath) {
+			reject("No file path specified");
+		}
+		if (!pathType) {
+			reject("No path type specified");
+		}
+		if (!base64Data) {
+			reject("No data specified");
+		}
+		if (writeToLog) {
+			NativeFileDocumentsUtils.writeToLog({
+				actionName: "writeFile",
+				logType: "Parameters",
+				logMessage: JSON.stringify({
+					filepath: filepath,
+					pathType: pathType,
+					dataLength: base64Data.length
+				})
+			});
+		}
 
-        const fullPath = NativeFileDocumentsUtils.getFullPath(filepath, pathType, RNFS, Platform.OS);
+		const fullPath = NativeFileDocumentsUtils.getFullPath(filepath, pathType, RNFS, Platform.OS);
 
-        if (writeToLog) {
-            NativeFileDocumentsUtils.writeToLog({
-                actionName: "writeFile",
-                logType: "Info",
-                logMessage: "Full path: " + fullPath
-            });
-        }
+		if (writeToLog) {
+			NativeFileDocumentsUtils.writeToLog({
+				actionName: "writeFile",
+				logType: "Info",
+				logMessage: "Full path: " + fullPath
+			});
+		}
 
-        RNFS.writeFile(fullPath, base64Data, "base64").then(() => {
-            resolve(true);
-        });
-    });
+		RNFS.writeFile(fullPath, base64Data, "base64").then(() => {
+			resolve(true);
+		});
+	});
 
-    // END USER CODE
+	// END USER CODE
 }

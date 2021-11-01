@@ -46,7 +46,7 @@ export const TextArea = {
         color: (_f = TextBox.inputDisabled) === null || _f === void 0 ? void 0 : _f.color
     },
     inputFocused: {
-        // autoCapitalize, placeholderTextColor, selectionColor, underlineColorAndroid and all TextStyle properties are allowed
+    // autoCapitalize, placeholderTextColor, selectionColor, underlineColorAndroid and all TextStyle properties are allowed
     },
     inputError: {
         // autoCapitalize, placeholderTextColor, selectionColor, underlineColorAndroid and all TextStyle properties are allowed

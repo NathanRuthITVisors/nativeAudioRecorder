@@ -6,7 +6,7 @@
 // - the code between BEGIN EXTRA CODE and END EXTRA CODE
 // Other code you write will be lost the next time you deploy the project.
 import { Big } from "big.js";
-import { fetch } from "@react-native-community/netinfo";
+import { fetch } from '@react-native-community/netinfo';
 
 // BEGIN EXTRA CODE
 // END EXTRA CODE
@@ -15,7 +15,7 @@ import { fetch } from "@react-native-community/netinfo";
  * @returns {Promise.<boolean>}
  */
 export async function IsWifiConnection() {
-    // BEGIN USER CODE
-    return fetch().then(info => info.type === "wifi");
-    // END USER CODE
+	// BEGIN USER CODE
+    return fetch().then((info) => info.type === "wifi");
+	// END USER CODE
 }

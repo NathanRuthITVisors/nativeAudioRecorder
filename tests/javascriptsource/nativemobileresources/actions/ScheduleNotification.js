@@ -6,15 +6,15 @@
 // - the code between BEGIN EXTRA CODE and END EXTRA CODE
 // Other code you write will be lost the next time you deploy the project.
 import { Big } from "big.js";
-import { Platform, NativeModules } from "react-native";
-import PushNotification from "react-native-push-notification";
+import { Platform, NativeModules } from 'react-native';
+import PushNotification from 'react-native-push-notification';
 
 // BEGIN EXTRA CODE
 // END EXTRA CODE
 
 /**
  * Displays the specified notification at a future moment in time.
- *
+ * 
  * Note: It is not possible to display a notification whilst the app is in the foreground on iOS 9.
  * @param {Date} date - This field is required.
  * @param {string} body - This field is required.
@@ -26,23 +26,12 @@ import PushNotification from "react-native-push-notification";
  * @param {string} actionGuid
  * @returns {Promise.<void>}
  */
-export async function ScheduleNotification(
-    date,
-    body,
-    title,
-    subtitle,
-    playSound,
-    notificationId,
-    actionName,
-    actionGuid
-) {
-    // BEGIN USER CODE
+export async function ScheduleNotification(date, body, title, subtitle, playSound, notificationId, actionName, actionGuid) {
+	// BEGIN USER CODE
     // Documentation https://github.com/zo0r/react-native-push-notification
     const isIOS = Platform.OS === "ios";
-    if (
-        NativeModules &&
-        ((isIOS && !NativeModules.RNCPushNotificationIOS) || (!isIOS && !NativeModules.RNPushNotification))
-    ) {
+    if (NativeModules &&
+        ((isIOS && !NativeModules.RNCPushNotificationIOS) || (!isIOS && !NativeModules.RNPushNotification))) {
         return Promise.reject(new Error("Notifications module is not available in your app"));
     }
     if (!body) {
@@ -52,19 +41,12 @@ export async function ScheduleNotification(
     const notificationIdNumber = Number(notificationId);
     if (!isIOS) {
         const channelId = "mendix-local-notifications";
-        const channelExists = await new Promise(resolve =>
-            PushNotification.channelExists(channelId, exists => resolve(exists))
-        );
+        const channelExists = await new Promise(resolve => PushNotification.channelExists(channelId, (exists) => resolve(exists)));
         if (!channelExists) {
-            const channel = await new Promise(resolve =>
-                PushNotification.createChannel(
-                    {
-                        channelId,
-                        channelName: "Local notifications"
-                    },
-                    created => resolve(created)
-                )
-            );
+            const channel = await new Promise(resolve => PushNotification.createChannel({
+                channelId,
+                channelName: "Local notifications"
+            }, created => resolve(created)));
             if (!channel) {
                 return Promise.reject(new Error("Could not create the local notifications channel"));
             }
@@ -92,5 +74,5 @@ export async function ScheduleNotification(
     }
     PushNotification.localNotificationSchedule(notification);
     return Promise.resolve();
-    // END USER CODE
+	// END USER CODE
 }

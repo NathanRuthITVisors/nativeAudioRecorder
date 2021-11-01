@@ -14,12 +14,12 @@ import { Big } from "big.js";
  * @returns {Promise.<void>}
  */
 export async function ToggleSidebar() {
-    // BEGIN USER CODE
+	// BEGIN USER CODE
     mx.ui.toggleSidebar();
     // Web platform
-    if (window) {
+    if (window && !(navigator && navigator.product === "ReactNative")) {
         document.dispatchEvent(new CustomEvent("toggleSidebar"));
     }
     return Promise.resolve();
-    // END USER CODE
+	// END USER CODE
 }

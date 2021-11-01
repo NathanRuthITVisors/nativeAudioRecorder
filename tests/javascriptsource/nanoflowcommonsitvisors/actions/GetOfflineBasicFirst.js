@@ -14,10 +14,10 @@ import { addConstraint, addSort, checkDateConstraintsBasic } from "../GetOffline
 // END EXTRA CODE
 
 /**
- * Basic implementation for getting data offline. All constraints must match.
- *
+ * Basic implementation for getting data offline. All constraints must match. 
+ * 
  * The first, or only, object is returned, empty if not found.
- *
+ * 
  * @param {string} entityToReturn
  * @param {string} attribute1 - The attribute (or reference) to constrain on
  * @param {"NanoflowCommonsITvisors.GetOfflineOperator.equals"|"NanoflowCommonsITvisors.GetOfflineOperator.lessThan"|"NanoflowCommonsITvisors.GetOfflineOperator.lessThanOrEquals"|"NanoflowCommonsITvisors.GetOfflineOperator.greaterThan"|"NanoflowCommonsITvisors.GetOfflineOperator.greaterThanOrEquals"|"NanoflowCommonsITvisors.GetOfflineOperator.contains"} operator1 - One of equals (default), lessThan, lessThanOrEquals, greatherThan, greaterThanOrEquals, contains
@@ -39,73 +39,51 @@ import { addConstraint, addSort, checkDateConstraintsBasic } from "../GetOffline
  * @param {boolean} asc3
  * @returns {Promise.<MxObject>}
  */
-export async function GetOfflineBasicFirst(
-    entityToReturn,
-    attribute1,
-    operator1,
-    value1,
-    negate1,
-    attribute2,
-    operator2,
-    value2,
-    negate2,
-    attribute3,
-    operator3,
-    value3,
-    negate3,
-    sort1,
-    asc1,
-    sort2,
-    asc2,
-    sort3,
-    asc3
-) {
-    // BEGIN USER CODE
-    return new Promise(function (resolve, reject) {
-        try {
-            var constraints = [],
-                filter = { limit: 1, offset: 0 },
-                sortArray = [];
+export async function GetOfflineBasicFirst(entityToReturn, attribute1, operator1, value1, negate1, attribute2, operator2, value2, negate2, attribute3, operator3, value3, negate3, sort1, asc1, sort2, asc2, sort3, asc3) {
+	// BEGIN USER CODE
+	return new Promise(function(resolve, reject) {
 
-            addConstraint(attribute1, operator1, value1, negate1, constraints);
-            addConstraint(attribute2, operator2, value2, negate2, constraints);
-            addConstraint(attribute3, operator3, value3, negate3, constraints);
+		try {
+			var constraints = [],
+				filter = {limit : 1, offset : 0},
+				sortArray = [];
 
-            checkDateConstraintsBasic(constraints, entityToReturn);
+			addConstraint(attribute1, operator1, value1, negate1, constraints);
+			addConstraint(attribute2, operator2, value2, negate2, constraints);
+			addConstraint(attribute3, operator3, value3, negate3, constraints);
 
-            addSort(sort1, asc1, sortArray);
-            addSort(sort2, asc2, sortArray);
-            addSort(sort3, asc3, sortArray);
-            filter.sort = sortArray;
+			checkDateConstraintsBasic(constraints, entityToReturn);
 
-            mx.data.getOffline(
-                entityToReturn,
-                constraints,
-                filter,
-                function (mxobjs, count) {
-                    if (count > 0) {
-                        resolve(mxobjs[0]);
-                    } else {
-                        // Returning null does not work, needs to be undefined
-                        resolve(undefined);
-                    }
-                },
-                function (error) {
-                    if (error && error.message) {
-                        reject("GetOfflineBasicFirst failed: " + error.message);
-                    } else {
-                        reject("GetOfflineBasicFirst failed to retrieve data.");
-                    }
-                }
-            );
-        } catch (error) {
-            if (error && error.message) {
-                reject("GetOfflineBasicFirst failed: " + error.message);
-            } else {
-                reject("GetOfflineBasicFirst failed.");
-            }
-        }
-    });
+			addSort(sort1, asc1, sortArray);
+			addSort(sort2, asc2, sortArray);
+			addSort(sort3, asc3, sortArray);
+			filter.sort = sortArray;
 
-    // END USER CODE
+			mx.data.getOffline(entityToReturn, constraints, filter,
+				function (mxobjs, count) {
+					if (count > 0) {
+						resolve(mxobjs[0]);
+					} else {
+						// Returning null does not work, needs to be undefined
+						resolve(undefined);
+					}
+				},
+				function (error) {
+					if (error && error.message) {
+						reject("GetOfflineBasicFirst failed: " + error.message);
+					} else {
+						reject("GetOfflineBasicFirst failed to retrieve data.");
+					}
+				}
+			);
+		} catch (error) {
+			if (error && error.message) {
+				reject("GetOfflineBasicFirst failed: " + error.message);
+			} else {
+				reject("GetOfflineBasicFirst failed.");
+			}
+		}
+	});
+
+	// END USER CODE
 }

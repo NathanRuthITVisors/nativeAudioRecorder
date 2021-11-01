@@ -12,9 +12,9 @@ To customize any core styling, copy the part you want to customize to styles/nat
 ========================================================================== */
 export const com_mendix_widget_native_colorpicker_ColorPicker = {
     container: {
-        // All ViewStyle properties are allowed
+    // All ViewStyle properties are allowed
     },
     thumbnail: {
-        // All ViewStyle properties are allowed
+    // All ViewStyle properties are allowed
     }
 };

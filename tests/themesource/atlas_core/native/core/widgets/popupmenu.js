@@ -23,7 +23,7 @@ export const com_mendix_widget_native_popupmenu_PopupMenu = {
     },
     custom: {
         container: {
-            // All ViewStyle properties are allowed
+        // All ViewStyle properties are allowed
         },
         itemStyle: {
             rippleColor: contrast.lower
@@ -52,7 +52,7 @@ export const com_mendix_widget_native_popupmenu_PopupMenu = {
                 color: brand.danger
             },
             customStyle: {
-                // All TextStyle properties are allowed
+            // All TextStyle properties are allowed
             }
         }
     }

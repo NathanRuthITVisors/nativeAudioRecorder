@@ -16,9 +16,9 @@ import RNFS from "react-native-fs";
  * @returns {Promise.<void>}
  */
 export async function stopDownload(jobId) {
-    // BEGIN USER CODE
+	// BEGIN USER CODE
 
-    // no write to log, stopping a download will trigger an exception on the downloadFile
-    RNFS.stopDownload(Number(jobId));
-    // END USER CODE
+	// no write to log, stopping a download will trigger an exception on the downloadFile
+	RNFS.stopDownload(Number(jobId));
+	// END USER CODE
 }

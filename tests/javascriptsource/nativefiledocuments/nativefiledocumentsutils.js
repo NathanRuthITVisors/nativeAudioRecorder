@@ -8,17 +8,18 @@
  * @param entityName The name of the entity to create an object for.
  * @returns Promise
  */
-const createMxObject = entityName => {
+const createMxObject = (entityName) => {
     return new Promise((resolve, reject) => {
         mx.data.create({
             entity: entityName,
-            callback: mxObject => {
+            callback:  (mxObject) => {
                 resolve(mxObject);
             },
-            error: e => {
+            error: (e) => {
                 reject("Could not create '" + entityName + "': " + e.message);
             }
         });
+
     });
 };
 
@@ -33,8 +34,8 @@ const createMxObject = entityName => {
 const getFullPath = (filepath, pathType, RNFS, os) => {
     let fullPath = null;
     const prefixAndroid = "file://";
-    switch (pathType) {
-        case "FullPath":
+	switch (pathType) {
+		case "FullPath":
             if (os === "android") {
                 if (filepath.startsWith(prefixAndroid)) {
                     fullPath = filepath;
@@ -44,38 +45,38 @@ const getFullPath = (filepath, pathType, RNFS, os) => {
             } else {
                 fullPath = filepath;
             }
-            break;
-
-        case "DocumentsDirectory":
-            if (filepath.startsWith("/")) {
-                fullPath = RNFS.DocumentDirectoryPath + filepath;
-            } else {
-                fullPath = RNFS.DocumentDirectoryPath + "/" + filepath;
+			break;
+	
+		case "DocumentsDirectory":
+			if (filepath.startsWith("/")) {
+				fullPath = RNFS.DocumentDirectoryPath + filepath;
+			} else {
+				fullPath = RNFS.DocumentDirectoryPath + "/" + filepath;
             }
             if (os === "android") {
                 fullPath = prefixAndroid + fullPath;
             }
-            break;
+			break;	
     }
     return fullPath;
 };
 
 /**
  * Write to log.
- * @param  logData
+ * @param  logData 
  */
-const writeToLog = logData => {
-    createMxObject("NativeFileDocuments.NativeActionLog").then(newLog => {
+const writeToLog = (logData) => {
+    createMxObject("NativeFileDocuments.NativeActionLog").then((newLog) => {
         newLog.set("LoggedAt", new Date());
         newLog.set("ActionName", logData.actionName);
         newLog.set("LogType", logData.logType);
         newLog.set("LogMessage", logData.logMessage);
         mx.data.commit({
             mxobj: newLog,
-            callback: function () {
+            callback: function() {
                 console.log("Log entry written");
             },
-            error: function (e) {
+            error: function(e) {
                 Promise.reject("Could not commit new native action log object: " + e.message);
             }
         });

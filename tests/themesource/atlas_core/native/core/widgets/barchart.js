@@ -13,7 +13,7 @@ To customize any core styling, copy the part you want to customize to styles/nat
 ========================================================================== */
 export const com_mendix_widget_native_barchart_BarChart = {
     container: {
-        // All ViewStyle properties are allowed
+    // All ViewStyle properties are allowed
     },
     errorMessage: {
         // All TextStyle properties are allowed
@@ -22,7 +22,7 @@ export const com_mendix_widget_native_barchart_BarChart = {
         fontWeight: font.weightNormal
     },
     chart: {
-        // All ViewStyle properties are allowed
+    // All ViewStyle properties are allowed
     },
     grid: {
         /*
@@ -120,7 +120,7 @@ export const com_mendix_widget_native_barchart_BarChart = {
         customBarStyles: {
             your_static_or_dynamic_attribute_value: {
                 bar: {
-                    /*
+                /*
                 Allowed properties:
                   -  ending (number)
                   -  barColor (string)
@@ -128,7 +128,7 @@ export const com_mendix_widget_native_barchart_BarChart = {
             */
                 },
                 label: {
-                    /*
+                /*
                 Allowed properties:
                   -  fontFamily (string)
                   -  fontSize (number)
