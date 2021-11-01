@@ -15,11 +15,11 @@ import { checkDateConstraintsFull } from "../GetOfflineUtils";
 
 /**
  * Get offline implementation using JSON strings as parameters. See getOffline at https://apidocs.mendix.com/7/client/mx.data.html for details.
- *
+ * 
  * Returns the first object, empty if not found.
- *
- * Be sure to specify a limit of one, to avoid receiving a lot of data which is not used anyway.
- *
+ * 
+ * Be sure to specify a limit of one, to avoid receiving a lot of data which is not used anyway. 
+ * 
  * Use DateTimeToMilliseconds to get the correct value to use for date constraints.
  * @param {string} entityToReturn
  * @param {string} constraintsJson
@@ -27,43 +27,42 @@ import { checkDateConstraintsFull } from "../GetOfflineUtils";
  * @returns {Promise.<MxObject>}
  */
 export async function GetOfflineFullFirst(entityToReturn, constraintsJson, filterJson) {
-    // BEGIN USER CODE
-    return new Promise(function (resolve, reject) {
-        try {
-            var constraints, filter;
+	// BEGIN USER CODE
+	return new Promise(function(resolve, reject) {
 
-            constraints = JSON.parse(constraintsJson);
-            checkDateConstraintsFull(constraints, entityToReturn);
+		try {
+			var constraints,
+				filter;
 
-            filter = JSON.parse(filterJson);
+			constraints = JSON.parse(constraintsJson);
+			checkDateConstraintsFull(constraints, entityToReturn);
 
-            mx.data.getOffline(
-                entityToReturn,
-                constraints,
-                filter,
-                function (mxobjs, count) {
-                    if (count > 0) {
-                        resolve(mxobjs[0]);
-                    } else {
-                        // Returning null does not work, needs to be undefined
-                        resolve(undefined);
-                    }
-                },
-                function (error) {
-                    if (error && error.message) {
-                        reject("GetOfflineFullFirst failed: " + error.message);
-                    } else {
-                        reject("GetOfflineFullFirst failed to retrieve data.");
-                    }
-                }
-            );
-        } catch (error) {
-            if (error && error.message) {
-                reject("GetOfflineFullFirst failed: " + error.message);
-            } else {
-                reject("GetOfflineFullFirst failed.");
-            }
-        }
-    });
-    // END USER CODE
+			filter = JSON.parse(filterJson);
+
+			mx.data.getOffline(entityToReturn, constraints, filter,
+				function (mxobjs, count) {
+					if (count > 0) {
+						resolve(mxobjs[0]);
+					} else {
+						// Returning null does not work, needs to be undefined
+						resolve(undefined);
+					}
+				},
+				function (error) {
+					if (error && error.message) {
+						reject("GetOfflineFullFirst failed: " + error.message);
+					} else {
+						reject("GetOfflineFullFirst failed to retrieve data.");
+					}
+				}
+			);
+		} catch (error) {
+			if (error && error.message) {
+				reject("GetOfflineFullFirst failed: " + error.message);
+			} else {
+				reject("GetOfflineFullFirst failed.");
+			}
+		}
+	});
+	// END USER CODE
 }

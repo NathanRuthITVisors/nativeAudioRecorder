@@ -6,7 +6,7 @@
 // - the code between BEGIN EXTRA CODE and END EXTRA CODE
 // Other code you write will be lost the next time you deploy the project.
 import { Big } from "big.js";
-import Geodecoder from "react-native-geocoder";
+import Geodecoder from 'react-native-geocoder';
 
 // BEGIN EXTRA CODE
 // END EXTRA CODE
@@ -20,7 +20,7 @@ import Geodecoder from "react-native-geocoder";
  * @returns {Promise.<string>}
  */
 export async function ReverseGeocode(latitude, longitude, geocodingProvider, providerApiKey) {
-    // BEGIN USER CODE
+	// BEGIN USER CODE
     /**
      * Documentation:
      *  - Native: https://github.com/devfd/react-native-geocoder
@@ -55,13 +55,9 @@ export async function ReverseGeocode(latitude, longitude, geocodingProvider, pro
     providerApiKey = encodeURIComponent(providerApiKey);
     const url = getApiUrl(geocodingProvider, latitude, longitude, providerApiKey);
     return fetch(url)
-        .then(response =>
-            response.json().catch(() =>
-                response.text().then(text => {
-                    return Promise.reject(new Error(text));
-                })
-            )
-        )
+        .then(response => response.json().catch(() => response.text().then(text => {
+        return Promise.reject(new Error(text));
+    })))
         .then(response => getAddress(geocodingProvider, response))
         .catch(error => Promise.reject(error));
     function getApiUrl(provider, lat, long, key) {
@@ -109,5 +105,5 @@ export async function ReverseGeocode(latitude, longitude, geocodingProvider, pro
                 return `${location.street}, ${location.postalCode} ${city}, ${country}`;
         }
     }
-    // END USER CODE
+	// END USER CODE
 }

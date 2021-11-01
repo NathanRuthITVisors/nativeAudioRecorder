@@ -12,47 +12,48 @@ import { Big } from "big.js";
 
 /**
  * Parse the drop data JSON of ReactNativeDraggableList into a list of Mendix objects.
- *
+ * 
  * Any non-persistent object can be used, as long as it contains (at least) an integer seqNbr attribute and an itemId attribute, usually a string
  * @param {string} dropData
  * @param {string} entityToReturn
  * @returns {Promise.<MxObject[]>}
  */
 export async function ParseNativeDraggableListDropData(dropData, entityToReturn) {
-    // BEGIN USER CODE
+	// BEGIN USER CODE
 
-    return new Promise((resolve, reject) => {
-        if (!entityToReturn) {
-            return reject(new Error("Input parameter 'EntityToReturn' is required"));
-        }
-        if (!dropData) {
-            return resolve(undefined);
-        }
-        const dropDataArray = JSON.parse(dropData);
-        result = [];
-        for (const dropDataItem of dropDataArray) {
-            createMxObject(entityToReturn).then(mxObj => {
-                mxObj.set("seqNbr", dropDataItem.seqNbr);
-                mxObj.set("itemId", dropDataItem.itemId);
-                result.push(mxObj);
-            });
-        }
-        return resolve(result);
-    });
+	return new Promise((resolve, reject) => {
+		if (!entityToReturn) {
+			return reject(new Error("Input parameter 'EntityToReturn' is required"));
+		}
+		if (!dropData) {
+			return resolve (undefined);
+		}
+		const dropDataArray = JSON.parse(dropData);
+		result = [];
+		for (const dropDataItem of dropDataArray) {
+			createMxObject(entityToReturn).then(mxObj => {
+				mxObj.set("seqNbr", dropDataItem.seqNbr);
+				mxObj.set("itemId", dropDataItem.itemId);
+				result.push(mxObj);
+			});
+		}
+		return resolve(result);
+	});
 
-    async function createMxObject(entityName) {
-        return new Promise((resolve, reject) => {
-            mx.data.create({
-                entity: entityName,
-                callback: mxObject => {
-                    resolve(mxObject);
-                },
-                error: e => {
-                    reject("Could not create '" + entityName + "': " + e.message);
-                }
-            });
-        });
-    }
+	async function createMxObject(entityName) {
+		return new Promise((resolve, reject) => {
+			mx.data.create({
+				entity: entityName,
+				callback:  (mxObject) => {
+					resolve(mxObject);
+				},
+				error: (e) => {
+					reject("Could not create '" + entityName + "': " + e.message);
+				}
+			});
 
-    // END USER CODE
+		});
+	}
+
+	// END USER CODE
 }

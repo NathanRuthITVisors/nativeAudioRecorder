@@ -12,17 +12,17 @@ import { Big } from "big.js";
 
 /**
  * If the user is logged in, logs out the user and restarts the client.
- *
+ * 
  * If the user is not logged in, the return value is false
- *
+ * 
  * @returns {Promise.<boolean>}
  */
 export async function SignOut() {
-    // BEGIN USER CODE
+	// BEGIN USER CODE
     if (!mx.session.isGuest()) {
         mx.logout();
         return Promise.resolve(true);
     }
     return Promise.resolve(false);
-    // END USER CODE
+	// END USER CODE
 }

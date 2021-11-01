@@ -17,47 +17,47 @@ import { Big } from "big.js";
  * @returns {Promise.<string>}
  */
 export async function GetEnumValue(mxObject, enumAttribute, useCaption) {
-    // BEGIN USER CODE
+	// BEGIN USER CODE
 
-    return new Promise(function (resolve, reject) {
-        var caption,
-            metaData,
-            rejectWithMessage = function (message) {
-                reject("GetEnumCaption: ");
-            },
-            value;
-        try {
-            if (!mxObject) {
-                rejectWithMessage("mxObject not set.");
-                return;
-            }
-            if (!enumAttribute) {
-                rejectWithMessage("enumAttribute not set.");
-                return;
-            }
-            metaData = mx.meta.getEntity(mxObject.getEntity());
-            if (!metaData.has(enumAttribute)) {
-                rejectWithMessage("Attribute " + enumAttribute + " is no attribute of " + mxObject.getEntity());
-            }
-            value = mxObject.get(enumAttribute);
-            if (value === null || value === "") {
-                // Returning null does not work, needs to be undefined
-                resolve(undefined);
-            } else {
-                if (useCaption) {
-                    caption = mxObject.getEnumCaption(enumAttribute, value);
-                    resolve(caption);
-                } else {
-                    resolve(value);
-                }
-            }
-        } catch (error) {
-            if (error && error.message) {
-                reject("GetEnumCaption failed: " + error.message);
-            } else {
-                reject("GetEnumCaption failed.");
-            }
-        }
-    });
-    // END USER CODE
+	return new Promise(function(resolve, reject) {
+		var caption,
+			metaData,
+			rejectWithMessage = function (message) {
+				reject("GetEnumCaption: ");
+			},
+			value;
+		try {
+			if (!mxObject) {
+				rejectWithMessage("mxObject not set.");
+				return;
+			}
+			if (!enumAttribute) {
+				rejectWithMessage("enumAttribute not set.");
+				return;
+			}
+			metaData = mx.meta.getEntity(mxObject.getEntity());
+			if (!metaData.has(enumAttribute)) {
+				rejectWithMessage("Attribute " + enumAttribute + " is no attribute of " + mxObject.getEntity());
+			}
+			value = mxObject.get(enumAttribute);
+			if (value === null || value === "") {
+				// Returning null does not work, needs to be undefined
+				resolve(undefined);
+			} else {
+				if (useCaption) {
+					caption = mxObject.getEnumCaption(enumAttribute, value);
+					resolve(caption);
+				} else {
+					resolve(value);
+				}
+			}
+		} catch (error) {
+			if (error && error.message) {
+				reject("GetEnumCaption failed: " + error.message);
+			} else {
+				reject("GetEnumCaption failed.");
+			}
+		}
+	});
+	// END USER CODE
 }

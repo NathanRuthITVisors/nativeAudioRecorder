@@ -6,7 +6,7 @@
 // - the code between BEGIN EXTRA CODE and END EXTRA CODE
 // Other code you write will be lost the next time you deploy the project.
 import { Big } from "big.js";
-import { Vibration } from "react-native";
+import { Vibration } from 'react-native';
 
 // BEGIN EXTRA CODE
 // END EXTRA CODE
@@ -16,10 +16,10 @@ import { Vibration } from "react-native";
  * @returns {Promise.<void>}
  */
 export async function Vibrate(duration) {
-    // BEGIN USER CODE
+	// BEGIN USER CODE
     // Documentation https://facebook.github.io/react-native/docs/vibration#vibrate
     const pattern = duration ? Number(duration) : 500;
     Vibration.vibrate(pattern, false);
     return Promise.resolve();
-    // END USER CODE
+	// END USER CODE
 }

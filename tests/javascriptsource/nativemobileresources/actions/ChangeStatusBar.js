@@ -6,7 +6,7 @@
 // - the code between BEGIN EXTRA CODE and END EXTRA CODE
 // Other code you write will be lost the next time you deploy the project.
 import { Big } from "big.js";
-import { StatusBar, Platform } from "react-native";
+import { StatusBar, Platform } from 'react-native';
 
 // BEGIN EXTRA CODE
 // END EXTRA CODE
@@ -21,16 +21,8 @@ import { StatusBar, Platform } from "react-native";
  * @param {"NativeMobileResources.StatusBarHideShowAnimation.none"|"NativeMobileResources.StatusBarHideShowAnimation.fade"|"NativeMobileResources.StatusBarHideShowAnimation.slide"} animateHideShow - If empty, the default value 'none' is used.
  * @returns {Promise.<void>}
  */
-export async function ChangeStatusBar(
-    style,
-    hidden,
-    animateChanges,
-    backgroundColor,
-    translucent,
-    networkActivityIndicatorVisible,
-    animateHideShow
-) {
-    // BEGIN USER CODE
+export async function ChangeStatusBar(style, hidden, animateChanges, backgroundColor, translucent, networkActivityIndicatorVisible, animateHideShow) {
+	// BEGIN USER CODE
     if (style) {
         StatusBar.setBarStyle(mapStyleEnum(style), animateChanges);
     }
@@ -57,5 +49,5 @@ export async function ChangeStatusBar(
                 return "dark-content";
         }
     }
-    // END USER CODE
+	// END USER CODE
 }

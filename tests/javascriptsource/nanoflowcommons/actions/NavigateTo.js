@@ -16,7 +16,7 @@ import { Big } from "big.js";
  * @returns {Promise.<boolean>}
  */
 export async function NavigateTo(location) {
-    // BEGIN USER CODE
+	// BEGIN USER CODE
     if (!location) {
         return Promise.reject(new Error("Input parameter 'Location' is required"));
     }
@@ -68,5 +68,5 @@ export async function NavigateTo(location) {
             window.location.href = url;
         }
     }
-    // END USER CODE
+	// END USER CODE
 }

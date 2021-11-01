@@ -6,9 +6,9 @@
 // - the code between BEGIN EXTRA CODE and END EXTRA CODE
 // Other code you write will be lost the next time you deploy the project.
 import { Big } from "big.js";
-import { NativeModules, Alert, Platform, Linking } from "react-native";
-import { launchImageLibrary, launchCamera } from "react-native-image-picker";
-import { getLocales } from "react-native-localize";
+import { NativeModules, Alert, Platform, Linking } from 'react-native';
+import { launchImageLibrary, launchCamera } from 'react-native-image-picker';
+import { getLocales } from 'react-native-localize';
 
 // BEGIN EXTRA CODE
 // END EXTRA CODE
@@ -22,7 +22,7 @@ import { getLocales } from "react-native-localize";
  * @returns {Promise.<boolean>}
  */
 export async function TakePicture(picture, pictureSource, pictureQuality, maximumWidth, maximumHeight) {
-    // BEGIN USER CODE
+	// BEGIN USER CODE
     if (!picture) {
         return Promise.reject(new Error("Input parameter 'Picture' is required"));
     }
@@ -30,9 +30,7 @@ export async function TakePicture(picture, pictureSource, pictureQuality, maximu
         return Promise.reject(new Error(`Entity ${picture.getEntity()} does not inherit from 'System.FileDocument'`));
     }
     if (pictureQuality === "custom" && !maximumHeight && !maximumWidth) {
-        return Promise.reject(
-            new Error("Picture quality is set to 'Custom', but no maximum width or height was provided")
-        );
+        return Promise.reject(new Error("Picture quality is set to 'Custom', but no maximum width or height was provided"));
     }
     // V3 dropped the feature of providing an action sheet so users can decide on which action to take, camera or library.
     const nativeVersionMajor = NativeModules.ImagePickerManager.showImagePicker ? 2 : 4;
@@ -43,7 +41,8 @@ export async function TakePicture(picture, pictureSource, pictureQuality, maximu
             return false;
         }
         return storeFile(picture, uri);
-    } catch (error) {
+    }
+    catch (error) {
         if (error === "canceled") {
             return false;
         }
@@ -53,30 +52,28 @@ export async function TakePicture(picture, pictureSource, pictureQuality, maximu
         return new Promise((resolve, reject) => {
             const options = nativeVersionMajor === 2 ? getOptionsV2() : getOptionsV4();
             getPictureMethod()
-                .then(method =>
-                    method(options, response => {
-                        if (response.didCancel) {
+                .then(method => method(options, (response) => {
+                if (response.didCancel) {
+                    return resolve(undefined);
+                }
+                if (nativeVersionMajor === 2) {
+                    response = response;
+                    if (response.error) {
+                        const unhandledError = handleImagePickerV2Error(response.error);
+                        if (!unhandledError) {
                             return resolve(undefined);
                         }
-                        if (nativeVersionMajor === 2) {
-                            response = response;
-                            if (response.error) {
-                                const unhandledError = handleImagePickerV2Error(response.error);
-                                if (!unhandledError) {
-                                    return resolve(undefined);
-                                }
-                                return reject(new Error(response.error));
-                            }
-                            return resolve(response.uri);
-                        }
-                        response = response;
-                        if (response.errorCode) {
-                            handleImagePickerV4Error(response.errorCode, response.errorMessage);
-                            return resolve(undefined);
-                        }
-                        return resolve(response.assets[0].uri);
-                    })
-                )
+                        return reject(new Error(response.error));
+                    }
+                    return resolve(response.uri);
+                }
+                response = response;
+                if (response.errorCode) {
+                    handleImagePickerV4Error(response.errorCode, response.errorMessage);
+                    return resolve(undefined);
+                }
+                return resolve(response.assets[0].uri);
+            }))
                 .catch(error => reject(error));
         });
     }
@@ -85,29 +82,22 @@ export async function TakePicture(picture, pictureSource, pictureQuality, maximu
             fetch(uri)
                 .then(response => response.blob())
                 .then(blob => {
-                    // eslint-disable-next-line no-useless-escape
-                    const filename = /[^\/]*$/.exec(uri)[0];
-                    const filePathWithoutFileScheme = uri.replace("file://", "");
-                    mx.data.saveDocument(
-                        imageObject.getGuid(),
-                        filename,
-                        {},
-                        blob,
-                        async () => {
-                            await NativeModules.NativeFsModule.remove(filePathWithoutFileScheme);
-                            imageObject.set("Name", filename);
-                            mx.data.commit({
-                                mxobj: imageObject,
-                                callback: () => resolve(true),
-                                error: error => reject(error)
-                            });
-                        },
-                        async error => {
-                            await NativeModules.NativeFsModule.remove(filePathWithoutFileScheme);
-                            reject(error);
-                        }
-                    );
-                })
+                // eslint-disable-next-line no-useless-escape
+                const filename = /[^\/]*$/.exec(uri)[0];
+                const filePathWithoutFileScheme = uri.replace("file://", "");
+                mx.data.saveDocument(imageObject.getGuid(), filename, {}, blob, async () => {
+                    await NativeModules.NativeFsModule.remove(filePathWithoutFileScheme);
+                    imageObject.set("Name", filename);
+                    mx.data.commit({
+                        mxobj: imageObject,
+                        callback: () => resolve(true),
+                        error: (error) => reject(error)
+                    });
+                }, async (error) => {
+                    await NativeModules.NativeFsModule.remove(filePathWithoutFileScheme);
+                    reject(error);
+                });
+            })
                 .catch(error => reject(error));
         });
     }
@@ -223,16 +213,10 @@ export async function TakePicture(picture, pictureSource, pictureQuality, maximu
         };
         switch (error) {
             case ERRORS.iOSPhotoLibraryPermissionDenied:
-                showAlert(
-                    "This app does not have access to your photo library",
-                    "To enable access, tap Settings and turn on Photos."
-                );
+                showAlert("This app does not have access to your photo library", "To enable access, tap Settings and turn on Photos.");
                 return;
             case ERRORS.iOSCameraPermissionDenied:
-                showAlert(
-                    "This app does not have access to your camera",
-                    "To enable access, tap Settings and turn on Camera."
-                );
+                showAlert("This app does not have access to your camera", "To enable access, tap Settings and turn on Camera.");
                 return;
             case ERRORS.AndroidPermissionDenied:
                 // Ignore this error because the image picker plugin already shows an alert in this case.
@@ -242,17 +226,12 @@ export async function TakePicture(picture, pictureSource, pictureQuality, maximu
         }
     }
     function showAlert(title, message) {
-        Alert.alert(
-            title,
-            message,
-            [
-                { text: "Cancel", style: "cancel" },
-                ...(Platform.OS === "ios"
-                    ? [{ text: "Settings", onPress: () => Linking.openURL("app-settings:") }]
-                    : [])
-            ],
-            { cancelable: false }
-        );
+        Alert.alert(title, message, [
+            { text: "Cancel", style: "cancel" },
+            ...(Platform.OS === "ios"
+                ? [{ text: "Settings", onPress: () => Linking.openURL("app-settings:") }]
+                : [])
+        ], { cancelable: false });
     }
     function handleImagePickerV4Error(errorCode, errorMessage) {
         var _a;
@@ -261,26 +240,15 @@ export async function TakePicture(picture, pictureSource, pictureQuality, maximu
                 showAlert("The camera is unavailable", "");
                 break;
             case "permission":
-                showAlert(
-                    "This app does not have access to your photo library or camera",
-                    "To enable access, tap Settings and turn on Camera and Photos."
-                );
+                showAlert("This app does not have access to your photo library or camera", "To enable access, tap Settings and turn on Camera and Photos.");
                 break;
             case "others":
-                showAlert(
-                    "Something went wrong.",
-                    (_a = `${errorMessage}.`) !== null && _a !== void 0
-                        ? _a
-                        : "Something went wrong while trying to access your Camera or photo library."
-                );
+                showAlert("Something went wrong.", (_a = `${errorMessage}.`) !== null && _a !== void 0 ? _a : "Something went wrong while trying to access your Camera or photo library.");
                 break;
             default:
-                showAlert(
-                    "Something went wrong.",
-                    "Something went wrong while trying to access your Camera or photo library."
-                );
+                showAlert("Something went wrong.", "Something went wrong while trying to access your Camera or photo library.");
                 break;
         }
     }
-    // END USER CODE
+	// END USER CODE
 }

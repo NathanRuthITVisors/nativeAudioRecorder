@@ -13,7 +13,7 @@ To customize any core styling, copy the part you want to customize to styles/nat
 ========================================================================== */
 export const Page = {
     sidebar: {
-        // All ViewStyle properties are allowed
+    // All ViewStyle properties are allowed
     },
     statusBar: {
         // Only backgroundColor and barStyle are allowed

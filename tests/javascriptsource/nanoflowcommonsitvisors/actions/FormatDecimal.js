@@ -18,31 +18,32 @@ import { Big } from "big.js";
  * @returns {Promise.<string>}
  */
 export async function FormatDecimal(decimalToFormat, numberOfDecimals, thousandSeparators) {
-    // BEGIN USER CODE
-    return new Promise(function (resolve, reject) {
-        var formattedDecimal, props;
-        if (typeof decimalToFormat !== "undefined" && decimalToFormat !== null) {
-            if (typeof numberOfDecimals !== "undefined" && numberOfDecimals !== null) {
-                try {
-                    props = {
-                        places: Number(numberOfDecimals.toFixed()),
-                        groups: typeof thousandSeparators !== "undefined" && thousandSeparators
-                    };
-                    formattedDecimal = mx.parser.formatValue(decimalToFormat, "decimal", props);
-                    resolve(formattedDecimal);
-                } catch (error) {
-                    if (error && error.message) {
-                        reject("FormatDecimal failed: " + error.message);
-                    } else {
-                        reject("FormatDecimal failed.");
-                    }
-                }
-            } else {
-                reject("FormatDecimal: No number of decimals specified");
-            }
-        } else {
-            resolve("");
-        }
-    });
-    // END USER CODE
+	// BEGIN USER CODE
+	return new Promise(function(resolve, reject) {
+		var formattedDecimal,
+			props;
+		if (typeof decimalToFormat !== "undefined" && decimalToFormat !== null) {
+			if (typeof numberOfDecimals !== "undefined" && numberOfDecimals !== null) {
+				try {
+					props = {
+						places: Number(numberOfDecimals.toFixed()),
+						groups: (typeof thousandSeparators !== "undefined" && thousandSeparators)
+					};
+					formattedDecimal = mx.parser.formatValue(decimalToFormat, "decimal", props);
+					resolve(formattedDecimal);
+				} catch (error) {
+					if (error && error.message) {
+						reject("FormatDecimal failed: " + error.message);
+					} else {
+						reject("FormatDecimal failed.");
+					}
+				}
+			} else {
+				reject("FormatDecimal: No number of decimals specified");
+			}
+		} else {
+			resolve("");
+		}
+	});
+	// END USER CODE
 }

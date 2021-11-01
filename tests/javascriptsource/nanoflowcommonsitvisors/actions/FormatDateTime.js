@@ -17,27 +17,27 @@ import { Big } from "big.js";
  * @returns {Promise.<string>}
  */
 export async function FormatDateTime(dateToFormat, formatToUse) {
-    // BEGIN USER CODE
-    return new Promise(function (resolve, reject) {
-        var formattedDate;
-        if (typeof dateToFormat !== "undefined" && dateToFormat !== null) {
-            if (typeof formatToUse !== "undefined" && formatToUse !== null && formatToUse) {
-                try {
-                    formattedDate = mx.parser.formatValue(dateToFormat, "datetime", { datePattern: formatToUse });
-                    resolve(formattedDate);
-                } catch (error) {
-                    if (error && error.message) {
-                        reject("FormatDateTime failed: " + error.message);
-                    } else {
-                        reject("FormatDateTime failed.");
-                    }
-                }
-            } else {
-                reject("FormatDateTime: No format specified");
-            }
-        } else {
-            resolve("");
-        }
-    });
-    // END USER CODE
+	// BEGIN USER CODE
+	return new Promise(function(resolve, reject) {
+		var formattedDate;
+		if (typeof dateToFormat !== "undefined" && dateToFormat !== null) {
+			if (typeof formatToUse !== "undefined" && formatToUse !== null && formatToUse) {
+				try {
+					formattedDate = mx.parser.formatValue(dateToFormat, "datetime", { datePattern: formatToUse});
+					resolve(formattedDate);
+				} catch (error) {
+					if (error && error.message) {
+						reject("FormatDateTime failed: " + error.message);
+					} else {
+						reject("FormatDateTime failed.");
+					}
+				}
+			} else {
+				reject("FormatDateTime: No format specified");
+			}
+		} else {
+			resolve("");
+		}
+	});
+	// END USER CODE
 }

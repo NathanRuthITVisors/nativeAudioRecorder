@@ -14,10 +14,10 @@ import { addConstraint, addSort, checkDateConstraintsBasic } from "../GetOffline
 // END EXTRA CODE
 
 /**
- * Basic implementation for getting data offline. All constraints must match.
- *
+ * Basic implementation for getting data offline. All constraints must match. 
+ * 
  * A list of objects is returned, empty if not found.
- *
+ * 
  * @param {string} entityToReturn
  * @param {Big} offset - Offset in the list to retrieve. If specified, a limit must be set too.
  * @param {Big} limit - Maximum result list size
@@ -41,88 +41,64 @@ import { addConstraint, addSort, checkDateConstraintsBasic } from "../GetOffline
  * @param {boolean} asc3
  * @returns {Promise.<MxObject[]>}
  */
-export async function GetOfflineBasicList(
-    entityToReturn,
-    offset,
-    limit,
-    attribute1,
-    operator1,
-    value1,
-    negate1,
-    attribute2,
-    operator2,
-    value2,
-    negate2,
-    attribute3,
-    operator3,
-    value3,
-    negate3,
-    sort1,
-    asc1,
-    sort2,
-    asc2,
-    sort3,
-    asc3
-) {
-    // BEGIN USER CODE
-    return new Promise(function (resolve, reject) {
-        try {
-            var constraints = [],
-                filter = {},
-                offsetValue,
-                limitValue,
-                sortArray = [];
+export async function GetOfflineBasicList(entityToReturn, offset, limit, attribute1, operator1, value1, negate1, attribute2, operator2, value2, negate2, attribute3, operator3, value3, negate3, sort1, asc1, sort2, asc2, sort3, asc3) {
+	// BEGIN USER CODE
+	return new Promise(function(resolve, reject) {
 
-            if (offset !== null && typeof offset !== "undefined") {
-                offsetValue = Number(offset.toFixed());
-                if (offsetValue > 0) {
-                    filter.offset = offsetValue;
-                }
-            }
-            if (limit !== null && typeof limit !== "undefined") {
-                limitValue = Number(limit.toFixed());
-                if (limitValue > 0) {
-                    filter.limit = limitValue;
-                }
-            }
+		try {
+			var constraints = [],
+				filter = {},
+				offsetValue,
+				limitValue,
+				sortArray = [];
 
-            addConstraint(attribute1, operator1, value1, negate1, constraints);
-            addConstraint(attribute2, operator2, value2, negate2, constraints);
-            addConstraint(attribute3, operator3, value3, negate3, constraints);
+			if (offset !== null && typeof offset !== "undefined") {
+				offsetValue = Number(offset.toFixed());
+				if (offsetValue > 0) {
+					filter.offset = offsetValue;
+				}
+			}
+			if (limit !== null && typeof limit !== "undefined") {
+				limitValue = Number(limit.toFixed());
+				if (limitValue > 0) {
+					filter.limit = limitValue;
+				}
+			}
 
-            checkDateConstraintsBasic(constraints, entityToReturn);
+			addConstraint(attribute1, operator1, value1, negate1, constraints);
+			addConstraint(attribute2, operator2, value2, negate2, constraints);
+			addConstraint(attribute3, operator3, value3, negate3, constraints);
 
-            addSort(sort1, asc1, sortArray);
-            addSort(sort2, asc2, sortArray);
-            addSort(sort3, asc3, sortArray);
-            filter.sort = sortArray;
+			checkDateConstraintsBasic(constraints, entityToReturn);
 
-            mx.data.getOffline(
-                entityToReturn,
-                constraints,
-                filter,
-                function (mxobjs, count) {
-                    if (count > 0) {
-                        resolve(mxobjs);
-                    } else {
-                        resolve([]);
-                    }
-                },
-                function (error) {
-                    if (error && error.message) {
-                        reject("GetOfflineBasicList failed: " + error.message);
-                    } else {
-                        reject("GetOfflineBasicList failed to retrieve data.");
-                    }
-                }
-            );
-        } catch (error) {
-            if (error && error.message) {
-                reject("GetOfflineBasicList failed: " + error.message);
-            } else {
-                reject("GetOfflineBasicList failed.");
-            }
-        }
-    });
-    // END USER CODE
+			addSort(sort1, asc1, sortArray);
+			addSort(sort2, asc2, sortArray);
+			addSort(sort3, asc3, sortArray);
+			filter.sort = sortArray;
+
+			mx.data.getOffline(entityToReturn, constraints, filter,
+				function (mxobjs, count) {
+					if (count > 0) {
+						resolve(mxobjs);
+					} else {
+						resolve([]);
+					}
+				},
+				function (error) {
+					if (error && error.message) {
+						reject("GetOfflineBasicList failed: " + error.message);
+					} else {
+						reject("GetOfflineBasicList failed to retrieve data.");
+					}
+				}
+			);
+		} catch (error) {
+			if (error && error.message) {
+				reject("GetOfflineBasicList failed: " + error.message);
+			} else {
+				reject("GetOfflineBasicList failed.");
+			}
+		}
+	});
+	// END USER CODE
 }

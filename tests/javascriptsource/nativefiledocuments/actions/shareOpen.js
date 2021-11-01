@@ -6,14 +6,14 @@
 // - the code between BEGIN EXTRA CODE and END EXTRA CODE
 // Other code you write will be lost the next time you deploy the project.
 import { Big } from "big.js";
-import Share from "react-native-share";
+import Share from 'react-native-share';
 
 // BEGIN EXTRA CODE
 // END EXTRA CODE
 
 /**
  * The open() method allows a user to share a premade message via a social medium they choose.
- * In other words, code specifies the message that will be sent and the user chooses to whom and the social medium through which the message will be sent.
+ * In other words, code specifies the message that will be sent and the user chooses to whom and the social medium through which the message will be sent. 
  * @param {string} message
  * @param {string} title
  * @param {string} emailSubject - Subject of the email
@@ -21,40 +21,41 @@ import Share from "react-native-share";
  * @returns {Promise.<boolean>}
  */
 export async function shareOpen(message, title, emailSubject, fileList) {
-    // BEGIN USER CODE
+	// BEGIN USER CODE
 
-    try {
-        const options = {
-            message: message ? message : "",
-            title: title ? title : "",
-            failOnCancel: false
-        };
-        if (emailSubject) {
-            options.subject = emailSubject;
-        }
+	try {
+		const options = {
+			message: message ? message : "",
+			title: title ? title : "",
+			failOnCancel: false
+		};
+		if (emailSubject) {
+			options.subject = emailSubject;
+		}
 
-        if (fileList) {
-            if (fileList.length === 1) {
-                options.url = fileList[0].get("URL");
-                options.filename = fileList[0].get("Name");
-            }
-            if (fileList.length > 1) {
-                options.urls = fileList.map(item => item.get("URL"));
-                //options.filenames = fileList.map(item => item.get("Name")); //When adding filenames in case of multiple images it gives the error "FileType not supported" (Whatsapp) or "Cannot add attachments" (Email)
-            }
-        }
+		if (fileList) {
+			if (fileList.length === 1) {
+				options.url = fileList[0].get("URL");
+				options.filename = fileList[0].get("Name");
+			}
+			if (fileList.length > 1) {
+				options.urls = fileList.map(item => item.get("URL"));
+				//options.filenames = fileList.map(item => item.get("Name")); //When adding filenames in case of multiple images it gives the error "FileType not supported" (Whatsapp) or "Cannot add attachments" (Email)
+				
+			}
+		}
 
-        console.info("shareOpen options: " + JSON.stringify(options));
-        const shareResponse = await Share.open(options);
-        console.info("shareOpen result: " + JSON.stringify(shareResponse));
-        if (shareResponse.dismissedAction) {
-            return false;
-        }
-        return true;
-    } catch (error) {
-        console.error(error);
-        return Promise.reject(error);
-    }
+		console.info("shareOpen options: " + JSON.stringify(options));
+		const shareResponse = await Share.open(options);
+		console.info("shareOpen result: " + JSON.stringify(shareResponse));
+		if (shareResponse.dismissedAction) {
+			return false;
+		}
+		return true;
+	} catch(error) {
+		console.error(error);
+		return Promise.reject(error);
+	}
 
-    // END USER CODE
+	// END USER CODE
 }

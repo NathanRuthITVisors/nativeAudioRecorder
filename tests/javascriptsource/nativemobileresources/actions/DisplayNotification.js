@@ -6,15 +6,15 @@
 // - the code between BEGIN EXTRA CODE and END EXTRA CODE
 // Other code you write will be lost the next time you deploy the project.
 import { Big } from "big.js";
-import { Platform, NativeModules } from "react-native";
-import PushNotification from "react-native-push-notification";
+import { Platform, NativeModules } from 'react-native';
+import PushNotification from 'react-native-push-notification';
 
 // BEGIN EXTRA CODE
 // END EXTRA CODE
 
 /**
  * Displays the specified notification straight away.
- *
+ * 
  * Note: It is not possible to display a notification whilst the app is in the foreground on iOS 9.
  * @param {string} body - This field is required.
  * @param {string} title
@@ -25,13 +25,11 @@ import PushNotification from "react-native-push-notification";
  * @returns {Promise.<void>}
  */
 export async function DisplayNotification(body, title, subtitle, playSound, actionName, actionGuid) {
-    // BEGIN USER CODE
+	// BEGIN USER CODE
     // Documentation https://github.com/zo0r/react-native-push-notification
     const isIOS = Platform.OS === "ios";
-    if (
-        NativeModules &&
-        ((isIOS && !NativeModules.RNCPushNotificationIOS) || (!isIOS && !NativeModules.RNPushNotification))
-    ) {
+    if (NativeModules &&
+        ((isIOS && !NativeModules.RNCPushNotificationIOS) || (!isIOS && !NativeModules.RNPushNotification))) {
         return Promise.reject(new Error("Notifications module is not available in your app"));
     }
     if (!body) {
@@ -40,19 +38,12 @@ export async function DisplayNotification(body, title, subtitle, playSound, acti
     const notification = { message: body };
     if (!isIOS) {
         const channelId = "mendix-local-notifications";
-        const channelExists = await new Promise(resolve =>
-            PushNotification.channelExists(channelId, exists => resolve(exists))
-        );
+        const channelExists = await new Promise(resolve => PushNotification.channelExists(channelId, (exists) => resolve(exists)));
         if (!channelExists) {
-            const channel = await new Promise(resolve =>
-                PushNotification.createChannel(
-                    {
-                        channelId,
-                        channelName: "Local notifications"
-                    },
-                    created => resolve(created)
-                )
-            );
+            const channel = await new Promise(resolve => PushNotification.createChannel({
+                channelId,
+                channelName: "Local notifications"
+            }, created => resolve(created)));
             if (!channel) {
                 return Promise.reject(new Error("Could not create the local notifications channel"));
             }
@@ -74,5 +65,5 @@ export async function DisplayNotification(body, title, subtitle, playSound, acti
     }
     PushNotification.localNotification(notification);
     return Promise.resolve();
-    // END USER CODE
+	// END USER CODE
 }

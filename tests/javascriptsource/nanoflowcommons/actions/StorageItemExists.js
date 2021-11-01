@@ -6,7 +6,7 @@
 // - the code between BEGIN EXTRA CODE and END EXTRA CODE
 // Other code you write will be lost the next time you deploy the project.
 import { Big } from "big.js";
-import AsyncStorage from "@react-native-community/async-storage";
+import AsyncStorage from '@react-native-community/async-storage';
 
 // BEGIN EXTRA CODE
 // END EXTRA CODE
@@ -17,7 +17,7 @@ import AsyncStorage from "@react-native-community/async-storage";
  * @returns {Promise.<boolean>}
  */
 export async function StorageItemExists(key) {
-    // BEGIN USER CODE
+	// BEGIN USER CODE
     if (!key) {
         return Promise.reject(new Error("Input parameter 'Key' is required"));
     }
@@ -32,5 +32,5 @@ export async function StorageItemExists(key) {
         }
         return Promise.reject(new Error("No storage API available"));
     }
-    // END USER CODE
+	// END USER CODE
 }

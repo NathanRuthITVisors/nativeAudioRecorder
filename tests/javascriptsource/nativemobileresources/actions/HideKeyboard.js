@@ -6,7 +6,7 @@
 // - the code between BEGIN EXTRA CODE and END EXTRA CODE
 // Other code you write will be lost the next time you deploy the project.
 import { Big } from "big.js";
-import { Keyboard } from "react-native";
+import { Keyboard } from 'react-native';
 
 // BEGIN EXTRA CODE
 // END EXTRA CODE
@@ -15,9 +15,9 @@ import { Keyboard } from "react-native";
  * @returns {Promise.<void>}
  */
 export async function HideKeyboard() {
-    // BEGIN USER CODE
+	// BEGIN USER CODE
     // Documentation https://facebook.github.io/react-native/docs/keyboard
     Keyboard.dismiss();
     return Promise.resolve();
-    // END USER CODE
+	// END USER CODE
 }
